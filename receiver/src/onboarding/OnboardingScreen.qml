@@ -10,7 +10,7 @@ Item {
     property color circleColor: "#ffffff"
     property bool animationRunning: false
 
-    // Title with independent positioning
+    // Title at top
     Text {
         id: title
         text: "Tap to Continue"

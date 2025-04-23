@@ -2,11 +2,13 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import QtCore
+import Qt.labs.settings
 import "./common"
 import "./onboarding"
 import "./setup"
 import "./home"
 import "./settings"
+import "./SettingsUI"
 
 ApplicationWindow {
     id: mainWindow
@@ -14,19 +16,24 @@ ApplicationWindow {
     height: 600
     visible: true
     title: qsTr("Hello World")
-    color: "#2adbde"
+    // color: "#2adbde"
+    color: "#ef476f"
 
     // Persistent settings
     Settings {
         id: appSettings
+        category: "AppConfig"  // Organize settings under this group
         property bool onboardingCompleted: false
         property int selectedDevice: -1
+        property string language: "en"
+        property string theme: "light"
     }
 
     Component {
         id: onboardingScreen
         OnboardingScreen {
             onCompleted: {
+                console.log(Globals.aNumber)
                 screenStack.push(setupScreen)
             }
         }
@@ -43,6 +50,15 @@ ApplicationWindow {
         }
     }
 
+    Component {
+        id: wifi
+        SettingsUI {
+            id: settingsUI
+            anchors.fill: parent
+            anchors.bottomMargin: parent.height - inputPanel.y
+        }
+    }
+
 
     Component {
         id: homeScreen
@@ -56,9 +72,16 @@ ApplicationWindow {
     Component {
         id: settingsScreen
         SettingsScreen {
-            // Add settings screen properties here
+            onSettingsUpdated: {
+                appSettings.sync()
+                screenStack.pop()
+            }
+            onSettingsCancelled: {
+                screenStack.pop()
+            }
         }
     }
+
 
     StackView {
         id: screenStack

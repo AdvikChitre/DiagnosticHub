@@ -1,8 +1,13 @@
 import QtQuick
 import QtQuick.Controls
+import "../audio"
 
 Item {
     signal settings()
+
+    SoundTest {
+
+    }
 
     SettingsButton {
         anchors {

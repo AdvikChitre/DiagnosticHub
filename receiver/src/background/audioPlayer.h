@@ -1,10 +1,25 @@
-#ifndef AUDIO_H
-#define AUDIO_H
+#ifndef AUDIOPLAYER_H
+#define AUDIOPLAYER_H
 
-class audio
+#include <QObject>
+#include <QMediaPlayer>
+#include <QAudioOutput>
+
+class AudioPlayer : public QObject
 {
+    Q_OBJECT
+
 public:
-    audio();
+    explicit AudioPlayer(QObject *parent = nullptr);
+    ~AudioPlayer();
+
+    void init();
+    void play(const QString &source);
+    void setVolume(int volume);
+
+private:
+    QMediaPlayer *player;
+    QAudioOutput *audioOutput;
 };
 
-#endif // AUDIO_H
+#endif // AUDIOPLAYER_H
