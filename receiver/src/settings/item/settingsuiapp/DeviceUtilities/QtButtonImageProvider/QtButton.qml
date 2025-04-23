@@ -10,8 +10,8 @@ Image {
     sourceSize: Qt.size(width, height)
     property string state: "enabled"
     property int cutSize: 10
-    property color fillColor: Globals.buttonGreenColor
-    property color borderColor: mouseArea.pressed ? Globals.buttonActiveColor : Globals.buttonGreenColor
+    property color fillColor: "#41cd52"
+    property color borderColor: mouseArea.pressed ? "#216729" : "#41cd52"
     property alias text: buttonText.text
     property alias fontFamily: buttonText.font.family
     signal clicked()
@@ -29,7 +29,7 @@ Image {
         verticalAlignment: Text.AlignVCenter
         horizontalAlignment: Text.AlignHCenter
         font.pixelSize: parent.height * 0.65
-        //font.family: Globals.appFont
+        //font.family: "TitilliumWeb"
         color: "white"
     }
 }

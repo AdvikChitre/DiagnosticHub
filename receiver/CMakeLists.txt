@@ -14,10 +14,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(NOT DEFINED INSTALL_EXAMPLESDIR)
     set(INSTALL_EXAMPLESDIR "${CMAKE_INSTALL_PREFIX}/share/examples")
 endif()
-set(INSTALL_EXAMPLEDIR "${INSTALL_EXAMPLESDIR}/src/settingsapp")
+set(INSTALL_EXAMPLEDIR "${INSTALL_EXAMPLESDIR}/src/settings/item/settingsuiapp/DeviceUtilities/settingsapp")
 
 
-add_subdirectory(src/SettingsUI)
+add_subdirectory(src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI)
+# add_subdirectory(src/QtButtonImageProvider)
 
 # set(CMAKE_PREFIX_PATH "/Users/advik/Qt/6.8.2/macos")
 
@@ -58,11 +59,11 @@ qt_add_qml_module(appreceiver
         src/icon/wifi-no-connection.svg
         src/devices/img/Acupebble.png
         src/audio/430811__mmoerth__strange-electronic-toilet-speech-wav.wav
-        src/settingsUI/icons/back.svg
-        src/settingsUI/icons/network.svg
-        src/SettingsUI/Network/icons/Alert_yellow_1x.png
-        src/SettingsUI/Network/icons/WifiAnim_black_2x.png
-        src/SettingsUI/Network/icons/Wifi_lightgray_2x.png
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/icons/back.svg
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/icons/network.svg
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/icons/Alert_yellow_1x.png
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/icons/WifiAnim_black_2x.png
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/icons/Wifi_lightgray_2x.png
     QML_FILES
         src/Main.qml
         src/audio/SoundTest.qml
@@ -79,30 +80,30 @@ qt_add_qml_module(appreceiver
         src/settings/item/Notifications.qml
         src/setup/SetupScreen.qml
         src/setup/DeviceCard.qml
-        src/SettingsUI/Globals.qml
-        src/SettingsUI/SettingsUI.qml
-        src/SettingsUI/Network/CustomSwitch.qml
-        src/SettingsUI/Network/CustomTableView.qml
-        src/SettingsUI/Network/AddressListEntry.qml
-        src/SettingsUI/Network/ComboBoxEntry.qml
-        src/SettingsUI/Network/EditWiredSettings.qml
-        src/SettingsUI/Network/IpAddressTextField.qml
-        src/SettingsUI/Network/NetworkListView.qml
-        src/SettingsUI/Network/NetworkSettings.qml
-        src/SettingsUI/Network/PassphraseEnter.qml
-        src/SettingsUI/Network/WifiSelectorDelegate.qml
-        src/SettingsUI/Network/WifiSettings.qml
-        src/SettingsUI/Network/WifiSignalMonitor.qml
-        src/SettingsUI/Network/WiredSettings.qml
-        src/QtButtonImageProvider/QtButton.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Globals.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/SettingsUI.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/CustomSwitch.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/CustomTableView.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/AddressListEntry.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/ComboBoxEntry.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/EditWiredSettings.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/IpAddressTextField.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/NetworkListView.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/NetworkSettings.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/PassphraseEnter.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/WifiSelectorDelegate.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/WifiSettings.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/WifiSignalMonitor.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/WiredSettings.qml
+        src/settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/QtButton.qml
     SOURCES
         src/devices/device.h src/devices/device.cpp
         src/background/notification.h src/background/notification.cpp
         src/devices/devicelist.h src/devices/devicelist.cpp
         src/background/wifimanager.h src/background/wifimanager.cpp
         src/background/audioplayer.h src/background/audioplayer.cpp
-        src/QtButtonImageProvider/plugin_p.h src/QtButtonImageProvider/plugin.cpp
-        src/QtButtonImageProvider/qtbuttonimageprovider.h src/QtButtonImageProvider/qtbuttonimageprovider.cpp
+        src/settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/plugin_p.h src/settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/plugin.cpp
+        src/settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/qtbuttonimageprovider.h src/settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/qtbuttonimageprovider.cpp
     # IMPORT_PATH
     #     src/SettingsUI
     #     src/SettingsUI/Network

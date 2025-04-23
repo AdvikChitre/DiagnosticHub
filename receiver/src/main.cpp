@@ -3,7 +3,7 @@
 #include <QQmlContext>
 #include "./devices/device.h"
 #include "./devices/devicelist.h"
-#include "QtButtonImageProvider/qtbuttonimageprovider.h"
+#include "settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/qtbuttonimageprovider.h"
 
 int main(int argc, char *argv[])
 {
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
     // WifiUI
-    engine.addImageProvider(QLatin1String("qbutton"), new QtButtonImageProvider());
+    // engine.addImageProvider(QLatin1String("qbutton"), new QtButtonImageProvider());
 
     QObject::connect(
         &engine,

@@ -9,11 +9,11 @@ Rectangle {
     color: "#9d9faa"
     opacity: 0.97
 
-    function margin(width) {
+    function getMargin(width) {
         return (width / 3 * 2) * 0.05;
     }
 
-    property int margin: margin(main.width)
+    property int margin: getMargin(main.width)
     signal closed()
 
     NetworkSettings {

@@ -27,8 +27,8 @@ Item {
         id: wlanText
         visible: wifiSwitch.visible
         text: qsTr("WiFi")
-        font.pixelSize: networkSettingsRoot.height * Globals.subTitleFontSize
-        font.family: Globals.appFont
+        font.pixelSize: networkSettingsRoot.height * 0.035
+        font.family: "TitilliumWeb"
         font.styleName: "SemiBold"
         color: "white"
         anchors.top: networkSettingsRoot.top
@@ -39,9 +39,9 @@ Item {
         id: wifiSwitch
         anchors.top: wlanText.bottom
         anchors.left: wlanText.left
-        height: networkSettingsRoot.height * Globals.buttonHeight
+        height: networkSettingsRoot.height * 0.05
         indicatorWidth: networkSettingsRoot.height * Globals.buttonWidth
-        indicatorHeight: networkSettingsRoot.height * Globals.buttonHeight
+        indicatorHeight: networkSettingsRoot.height * 0.05
         checkable: visible && !wifiSwitchTimer.running
 
         onCheckedChanged: {
@@ -67,9 +67,9 @@ Item {
         anchors.rightMargin: 10
         visible: wifiSwitch.visible
         enabled: wifiSwitch.checked
-        fillColor: enabled ? Globals.buttonGreenColor : Globals.buttonGrayColor
+        fillColor: enabled ? "#41cd52" : "#9d9faa"
         borderColor: "transparent"
-        height: networkSettingsRoot.height * Globals.buttonHeight
+        height: networkSettingsRoot.height * 0.05
         text: qsTr("MANUAL CONNECT")
         onClicked: {
             networkList.connectBySsid()
@@ -82,9 +82,9 @@ Item {
         anchors.right: networkSettingsRoot.right
         visible: wifiSwitch.visible
         enabled: NetworkSettingsManager.currentWifiConnection
-        fillColor: enabled ? Globals.buttonGreenColor : Globals.buttonGrayColor
+        fillColor: enabled ? "#41cd52" : "#9d9faa"
         borderColor: "transparent"
-        height: networkSettingsRoot.height * Globals.buttonHeight
+        height: networkSettingsRoot.height * 0.05
         text: qsTr("DISCONNECT")
         onClicked: {
             if (NetworkSettingsManager.currentWifiConnection) {
@@ -96,8 +96,8 @@ Item {
     Text {
         id: networkListTextItem
         text: qsTr("Available networks:")
-        font.pixelSize: networkSettingsRoot.height * Globals.subTitleFontSize
-        font.family: Globals.appFont
+        font.pixelSize: networkSettingsRoot.height * 0.035
+        font.family: "TitilliumWeb"
         font.styleName: "SemiBold"
         color: "white"
         anchors.top: (wifiSwitch.visible === true) ? wifiSwitch.bottom : networkSettingsRoot.top

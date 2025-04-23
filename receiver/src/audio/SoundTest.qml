@@ -9,6 +9,9 @@ Item {
     MediaPlayer {
         id: mediaPlayer
         source: "430811__mmoerth__strange-electronic-toilet-speech-wav.wav"
+        audioOutput: AudioOutput {
+            volume: 1
+        }
     }
 
     Button {

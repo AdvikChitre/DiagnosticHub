@@ -25,6 +25,7 @@ void AudioPlayer::init()
 void AudioPlayer::play(const QString &source)
 {
     if(player && audioOutput) {
+        player->stop();
         player->setSource(QUrl::fromLocalFile(source));
         player->play();
     }

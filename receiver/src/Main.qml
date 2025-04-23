@@ -8,7 +8,7 @@ import "./onboarding"
 import "./setup"
 import "./home"
 import "./settings"
-import "./SettingsUI"
+import "./settings/item/settingsuiapp/DeviceUtilities/SettingsUI"
 
 ApplicationWindow {
     id: mainWindow
@@ -85,7 +85,7 @@ ApplicationWindow {
 
     StackView {
         id: screenStack
-        initialItem: appSettings.selectedDevice == -1 ? onboardingScreen : homeScreen
+        initialItem: appSettings.selectedDevice == -1 ? wifi : homeScreen
         anchors.fill: parent
         onCurrentItemChanged: console.log("Current screen:", currentItem)
     }

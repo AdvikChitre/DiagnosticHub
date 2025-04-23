@@ -25,8 +25,8 @@ target_link_libraries(qtbuttonimageproviderplugin PRIVATE
 )
 
 install(TARGETS qtbuttonimageproviderplugin
-    DESTINATION "${INSTALL_EXAMPLEDIR}/DeviceUtilities/QtButtonImageProvider"
+    DESTINATION "${INSTALL_EXAMPLEDIR}/src/QtButtonImageProvider"
 )
 install(FILES $<TARGET_FILE_DIR:qtbuttonimageproviderplugin>/qmldir
-    DESTINATION "${INSTALL_EXAMPLEDIR}/DeviceUtilities/QtButtonImageProvider"
+    DESTINATION "${INSTALL_EXAMPLEDIR}/src/QtButtonImageProvider"
 )

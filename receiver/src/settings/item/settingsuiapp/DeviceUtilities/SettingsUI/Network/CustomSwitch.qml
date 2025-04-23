@@ -33,7 +33,7 @@ Switch {
             font.pixelSize: parent.height * 0.55
             color: "#3b4155"
             text: "OFF"
-            font.family: Globals.appFont
+            font.family: "TitilliumWeb"
         }
         Text {
             id: onText
@@ -47,7 +47,7 @@ Switch {
             font.pixelSize: parent.height * 0.55
             color: "#3b4155"
             text: "ON"
-            font.family: Globals.appFont
+            font.family: "TitilliumWeb"
         }
 
         Binding {
@@ -62,7 +62,7 @@ Switch {
             anchors.verticalCenter: parent.verticalCenter
             width: parent.width * 0.475
             height: parent.height * 0.9
-            fillColor: control.checked ? Globals.buttonGreenColor : Globals.buttonGrayColor
+            fillColor: control.checked ? "#41cd52" : "#9d9faa"
             text: control.checked ? "ON" : "OFF"
             borderColor: "transparent"
             Behavior on x {

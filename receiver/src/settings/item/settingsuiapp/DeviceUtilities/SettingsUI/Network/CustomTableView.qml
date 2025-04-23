@@ -40,7 +40,7 @@ ColumnLayout {
             contentItem: Rectangle {
                 implicitWidth: listView.width * 0.0175
                 implicitHeight: listView.height * 0.5
-                color: Globals.scrollBarColor
+                color: "#41cd52"
             }
         }
 
@@ -67,8 +67,8 @@ ColumnLayout {
                         antialiasing: false
                         smooth: false
                         renderType: listView.moving ? Text.NativeRendering : Text.QtRendering
-                        color: listView.currentIndex == delegateRectangle.index ? Globals.buttonGreenColor : "white"
-                        font.family: Globals.appFont
+                        color: listView.currentIndex == delegateRectangle.index ? "#41cd52" : "white"
+                        font.family: "TitilliumWeb"
                     }
                 }
             }

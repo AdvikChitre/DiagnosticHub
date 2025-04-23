@@ -12,7 +12,7 @@ Rectangle {
     id: passphrasePopup
     width: parent.width
     height: parent.height
-    color: Globals.backgroundColor
+    color: "#09102b"
     opacity: 0.9
     property string extraInfo: ""
     property bool showSsid: false
@@ -22,8 +22,8 @@ Rectangle {
 
     Rectangle {
         id: frame
-        color: Globals.backgroundColor
-        border.color: Globals.borderColor
+        color: "#09102b"
+        border.color: "#9d9faa"
         border.width: 3
         anchors.centerIn: parent
         width: passphraseColumn.width * 1.1
@@ -36,8 +36,8 @@ Rectangle {
 
             Text {
                 visible: showSsid
-                font.pixelSize: passphrasePopup.height * Globals.subTitleFontSize
-                font.family: Globals.appFont
+                font.pixelSize: passphrasePopup.height * 0.035
+                font.family: "TitilliumWeb"
                 color: "white"
                 text: qsTr("Enter SSID")
             }
@@ -50,21 +50,21 @@ Rectangle {
                 color: "white"
                 background: Rectangle{
                     color: "transparent"
-                    border.color: ssidField.focus ? Globals.buttonGreenColor : Globals.buttonGrayColor
+                    border.color: ssidField.focus ? "#41cd52" : "#9d9faa"
                     border.width: ssidField.focus ? width * 0.01 : 2
                 }
             }
 
             Text {
-                font.pixelSize: passphrasePopup.height * Globals.subTitleFontSize
-                font.family: Globals.appFont
+                font.pixelSize: passphrasePopup.height * 0.035
+                font.family: "TitilliumWeb"
                 color: "white"
                 text: qsTr("Enter Passphrase")
             }
 
             Text {
-                font.pixelSize: passphrasePopup.height * Globals.valueFontSize
-                font.family: Globals.appFont
+                font.pixelSize: passphrasePopup.height * 0.025
+                font.family: "TitilliumWeb"
                 color: "red"
                 text: extraInfo
                 visible: (extraInfo !== "")
@@ -78,7 +78,7 @@ Rectangle {
                 echoMode: TextInput.Password
                 background: Rectangle{
                     color: "transparent"
-                    border.color: passField.focus ? Globals.buttonGreenColor : Globals.buttonGrayColor
+                    border.color: passField.focus ? "#41cd52" : "#9d9faa"
                     border.width: passField.focus ? width * 0.01 : 2
                 }
             }
@@ -102,7 +102,7 @@ Rectangle {
                     id: cancelButton
                     text: qsTr("CANCEL")
                     borderColor: "transparent"
-                    fillColor: Globals.buttonGrayColor
+                    fillColor: "#9d9faa"
                     onClicked: {
                         if (!showSsid) {
                             NetworkSettingsManager.userAgent.cancelInput()

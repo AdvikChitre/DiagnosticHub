@@ -22,6 +22,10 @@ ListView {
         passphraseEnter.visible = true
     }
 
+    function margin(width) {
+        return (width / 3 * 2) * 0.05;
+    }
+
     delegate: Item {
         id: networkDelegate
         width: list.width
@@ -34,9 +38,9 @@ ListView {
                 id: networkName
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
-                font.pixelSize: Globals.subTitleFontSize
-                font.family: Globals.appFont
-                color: connected ? Globals.buttonGreenColor : "white"
+                font.pointSize: 0.035
+                font.family: "TitilliumWeb"
+                color: connected ? "#41cd52" : "white"
                 text: (type === NetworkSettingsType.Wired) ? name + " (" + entry["id"] + ")" : name
             }
             Row {
@@ -44,7 +48,7 @@ ListView {
                 height: networkDelegate.height * 0.275 * opacity
                 spacing: networkDelegate.width * 0.0075
                 Item {
-                    width: Globals.margin(list.width)
+                    width: margin(list.width)
                     height: 1
                 }
                 Text {
@@ -52,9 +56,9 @@ ListView {
                     height: parent.height
                     anchors.verticalCenter: parent.verticalCenter
                     text: qsTr("IP Address:")
-                    color: connected ? Globals.buttonGreenColor : "white"
-                    font.pixelSize: Globals.valueFontSize
-                    font.family: Globals.appFont
+                    color: connected ? "#41cd52" : "white"
+                    font.pointSize: 0.025
+                    font.family: "TitilliumWeb"
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignLeft
                 }
@@ -65,22 +69,22 @@ ListView {
                     anchors.verticalCenter: parent.verticalCenter
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignLeft
-                    color: connected ? Globals.buttonGreenColor : "white"
+                    color: connected ? "#41cd52" : "white"
                     text: connected ? NetworkSettingsManager.services.itemFromRow(index).ipv4.address
                                         : (NetworkSettingsManager.services.itemFromRow(index).state === NetworkSettingsState.Idle) ?
                                         qsTr("Not connected") : qsTr("Connecting")
-                    font.pixelSize: Globals.valueFontSize
-                    font.family: Globals.appFont
+                    font.pointSize: 0.025
+                    font.family: "TitilliumWeb"
                     font.styleName: connected ? "SemiBold" : "Regular"
                 }
             }
         }
         QtButton {
             id: connectButton
-            fontFamily: Globals.appFont
+            fontFamily: "TitilliumWeb"
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
-            fillColor: connected ? Globals.buttonGrayColor : Globals.buttonGreenColor
+            fillColor: connected ? "#9d9faa" : "#41cd52"
             borderColor: "transparent"
             text: connected ? qsTr("DISCONNECT") : qsTr("CONNECT")
             enabled: true
@@ -100,7 +104,7 @@ ListView {
         Rectangle {
             id: delegateBottom
             width: networkDelegate.width
-            color: Globals.borderColor
+            color: "#9d9faa"
             height: 2
             anchors.bottom: networkDelegate.bottom
             anchors.horizontalCenter: networkDelegate.horizontalCenter
