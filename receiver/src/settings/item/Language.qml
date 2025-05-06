@@ -1,5 +1,7 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.VirtualKeyboard
+import QtQuick.VirtualKeyboard.Settings
 
 Column {
     spacing: 20
@@ -10,13 +12,33 @@ Column {
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
+    Component.onCompleted: {
+        console.log(VirtualKeyboardSettings.activeLocales)
+        console.log(VirtualKeyboardSettings.availableLocales)
+    }
+
     Repeater {
-        model: ["English", "Spanish", "French", "German"]
+        model: [
+            { name: "en_US", label: "English (US)" },
+            { name: "es_ES", label: "Español (ES)" },
+            { name: "fr_FR", label: "Français (FR)" },
+            { name: "de_DE", label: "Deutsch (DE)" }
+        ]
 
         RadioButton {
-            text: modelData
-            checked: index === 0
+            text: modelData.label
+            checked: appStorage.selectedLanguage === modelData.name
             anchors.horizontalCenter: parent.horizontalCenter
+
+            onCheckedChanged: {
+                if (checked) {
+                    // Update app settings
+                    appStorage.selectedLanguage = modelData.name
+
+                    // Update keyboard layout
+                    VirtualKeyboardSettings.locale = modelData.name
+                }
+            }
         }
     }
 }

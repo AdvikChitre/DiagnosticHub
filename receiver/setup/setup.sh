@@ -18,3 +18,11 @@ EOF
 
 # Wifi module
 echo 'IMAGE_INSTALL:append = " networkmanager wpa-supplicant"' >> local.conf
+
+# HTTPS
+# TODO: check if needed
+echo 'IMAGE_INSTALL:append = " openssl"' >> local.conf
+echo 'IMAGE_INSTALL:append = " ca-certificates"' >> local.conf
+
+# BLE
+rfkill unblock bluetooth

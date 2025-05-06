@@ -3,19 +3,19 @@ import QtQuick.VirtualKeyboard
 
 InputPanel {
     id: keyboard
-    required property Item rootWindow // Active window
+    property Item rootWindow // Active window
 
     z: 99
     x: 0
-    y: rootWindow.height
-    width: rootWindow.width
+    y: parent.height /*rootWindow ? rootWindow.height : 0*/
+    width: rootWindow ? rootWindow.width : parent.width
 
     states: State {
         name: "visible"
         when: keyboard.active
         PropertyChanges {
             target: keyboard
-            y: rootWindow.height - keyboard.height
+            y: parent.height - keyboard.height /*rootWindow ? (rootWindow.height - keyboard.height) : 0*/
         }
     }
     transitions: Transition {
@@ -30,4 +30,5 @@ InputPanel {
             }
         }
     }
+    AutoScroller {}
 }

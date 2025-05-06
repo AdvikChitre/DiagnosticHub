@@ -16,10 +16,13 @@ public:
     void init();
     void play(const QString &source);
     void setVolume(int volume);
+    void incVolume();
+    void decVolume();
 
 private:
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
+    int volume;
 };
 
 #endif // AUDIOPLAYER_H

@@ -14,34 +14,31 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 if(NOT DEFINED INSTALL_EXAMPLESDIR)
     set(INSTALL_EXAMPLESDIR "${CMAKE_INSTALL_PREFIX}/share/examples")
 endif()
-set(INSTALL_EXAMPLEDIR "${INSTALL_EXAMPLESDIR}/src/settings/item/settingsuiapp/DeviceUtilities/settingsapp")
-
-
-add_subdirectory(src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI)
-# add_subdirectory(src/QtButtonImageProvider)
-
-# set(CMAKE_PREFIX_PATH "/Users/advik/Qt/6.8.2/macos")
-
-# set_source_files_properties(src/SettingsUI/Globals.qml
-#     PROPERTIES
-#         QT_QML_SINGLETON_TYPE true
-# )
+set(INSTALL_EXAMPLEDIR "${INSTALL_EXAMPLESDIR}/src/settings/item/settingsapp/DeviceUtilities/settingsapp")
 
 find_package(
     Qt6
     REQUIRED COMPONENTS
-    Gui
-    Quick
-    Multimedia
-    Network
-    NetworkSettings
-    QuickControls2
+        Gui
+        Quick
+        Multimedia
+        Network
+        # NetworkSettings
+        QuickControls2
+        Bluetooth
 )
 
 qt_standard_project_setup(REQUIRES 6.5)
 
+# add_subdirectory(src/settings/item/settingsapp)
+# add_subdirectory(extern/qtotaupdate)
+
 qt_add_executable(appreceiver
     src/main.cpp
+)
+
+set_source_files_properties(src/common/Constants.qml PROPERTIES
+    QT_QML_SINGLETON_TYPE TRUE
 )
 
 qt_add_qml_module(appreceiver
@@ -59,16 +56,21 @@ qt_add_qml_module(appreceiver
         src/icon/wifi-no-connection.svg
         src/devices/img/Acupebble.png
         src/audio/430811__mmoerth__strange-electronic-toilet-speech-wav.wav
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/icons/back.svg
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/icons/network.svg
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/icons/Alert_yellow_1x.png
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/icons/WifiAnim_black_2x.png
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/icons/Wifi_lightgray_2x.png
+        src/background/ble/assets/busy_dark.png
     QML_FILES
         src/Main.qml
         src/audio/SoundTest.qml
-        src/background/WifiScreen.qml
+        src/background/ble/Characteristics.qml
+        src/background/ble/Devices.qml
+        src/background/ble/Dialog.qml
+        src/background/ble/Header.qml
+        src/background/ble/Label.qml
+        src/background/ble/BLETest.qml
+        src/background/ble/Menu.qml
+        src/background/ble/Services.qml
+        src/common/Constants.qml
         src/common/Keyboard.qml
+        src/common/AutoScroller.qml
         src/common/BackButton.qml
         src/home/HomeScreen.qml
         src/home/SettingsButton.qml
@@ -76,37 +78,28 @@ qt_add_qml_module(appreceiver
         src/settings/SettingsScreen.qml
         src/settings/SettingsProgressBar.qml
         src/settings/item/Language.qml
-        src/settings/item/Colours.qml
-        src/settings/item/Notifications.qml
+        src/settings/item/colours/Colours.qml
+        src/settings/item/colours/SchemePreview.qml
+        src/settings/item/notifications/Notifications.qml
+        src/settings/item/notifications/RoundedSwitch.qml
+        src/settings/item/wifi/WifiScreen.qml
+        # src/settings/item/wifi/WifiSelectorDelegate.qml
+        # src/settings/item/wifi/ComboBoxEntry.qml
+        # src/settings/item/wifi/CredentialDialog.qml
+        src/settings/item/wifi/PassphraseEnter.qml
+        # src/settings/item/wifi/WifiSettings.qml
         src/setup/SetupScreen.qml
         src/setup/DeviceCard.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Globals.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/SettingsUI.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/CustomSwitch.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/CustomTableView.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/AddressListEntry.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/ComboBoxEntry.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/EditWiredSettings.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/IpAddressTextField.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/NetworkListView.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/NetworkSettings.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/PassphraseEnter.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/WifiSelectorDelegate.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/WifiSettings.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/WifiSignalMonitor.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/SettingsUI/Network/WiredSettings.qml
-        src/settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/QtButton.qml
     SOURCES
-        src/devices/device.h src/devices/device.cpp
         src/background/notification.h src/background/notification.cpp
-        src/devices/devicelist.h src/devices/devicelist.cpp
-        src/background/wifimanager.h src/background/wifimanager.cpp
+        # src/background/wifimanager.h src/background/wifimanager.cpp
         src/background/audioplayer.h src/background/audioplayer.cpp
-        src/settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/plugin_p.h src/settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/plugin.cpp
-        src/settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/qtbuttonimageprovider.h src/settings/item/settingsuiapp/DeviceUtilities/QtButtonImageProvider/qtbuttonimageprovider.cpp
-    # IMPORT_PATH
-    #     src/SettingsUI
-    #     src/SettingsUI/Network
+        src/background/ble/characteristicinfo.h src/background/ble/characteristicinfo.cpp
+        src/background/ble/device.h src/background/ble/device.cpp
+        src/background/ble/deviceinfo.h src/background/ble/deviceinfo.cpp
+        src/background/ble/serviceinfo.h src/background/ble/serviceinfo.cpp
+        src/request/networkmanager.h src/request/networkmanager.cpp
+        # src/settings/item/settingsapp/DeviceUtilities/QtButtonImageProvider/qtbuttonimageprovider.h src/settings/item/settingsapp/DeviceUtilities/QtButtonImageProvider/qtbuttonimageprovider.cpp
 )
 
 target_link_libraries(appreceiver
@@ -115,8 +108,10 @@ target_link_libraries(appreceiver
         Qt6::Quick
         Qt6::Multimedia
         Qt6::Network
-        Qt6::NetworkSettings
+        # Qt6::NetworkSettings
         Qt6::QuickControls2
+        # QtOtaUpdate
+        Qt6::Bluetooth
 )
 
 include(GNUInstallDirs)

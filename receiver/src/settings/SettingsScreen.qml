@@ -2,6 +2,8 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import './item' as Items
+import './item/colours' as Items
+import './item/notifications' as Items
 
 Item {
     id: settingsScreen

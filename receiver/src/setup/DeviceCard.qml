@@ -40,7 +40,7 @@ Item {
 
         Image {
             id: image
-            source: "../devices/img/" + name + ".png"
+            source: "http://chitre.co.uk/images/Theatre_setup_small[1].JPG" //"../devices/img/" + name + ".png"
             anchors.fill: parent
             visible: false
         }

@@ -1,4 +1,3 @@
-// mediaplayer.cpp
 #include "audioplayer.h"
 #include <QUrl>
 
@@ -24,17 +23,29 @@ void AudioPlayer::init()
 
 void AudioPlayer::play(const QString &source)
 {
-    if(player && audioOutput) {
+    if (player && audioOutput) {
         player->stop();
         player->setSource(QUrl::fromLocalFile(source));
         player->play();
     }
 }
 
-void AudioPlayer::setVolume(int volume)
+void AudioPlayer::setVolume(int vol)
 {
-    if(audioOutput) {
+    if (audioOutput) {
         // Convert 0-100 range to 0.0-1.0 range
-        audioOutput->setVolume(static_cast<float>(volume) / 100.0f);
+        audioOutput->setVolume(static_cast<float>(vol) / 100.0f);
     }
+}
+
+void AudioPlayer::incVolume()
+{
+    volume += 0.1;
+    AudioPlayer::setVolume(volume);
+}
+
+void AudioPlayer::decVolume()
+{
+    volume -= 0.1;
+    AudioPlayer::setVolume(volume);
 }
