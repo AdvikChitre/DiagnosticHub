@@ -10,7 +10,7 @@ Item {
     property color circleColor: "#ffffff"
     property bool animationRunning: false
 
-    // Title with independent positioning
+    // Title at top
     Text {
         id: title
         text: "Tap to Continue"
@@ -50,9 +50,9 @@ Item {
             id: introText
             anchors.centerIn: parent
             text: {
-                if (progress >= 1 && progress < 2) return "Step 1: Initializing...\nHello";
-                if (progress >= 2 && progress < 3) return "Step 2: Processing...";
-                if (progress >= 3 && progress < 4) return "Step 3: Finalizing...";
+                if (progress >= 1 && progress < 2) return "You have been given a device to record some data";
+                if (progress >= 2 && progress < 3) return "That device can't do everything on its own, so I'm here to help it!";
+                if (progress >= 3 && progress < 4) return "Keep me close by when you use your device";
                 return ""; // Hide text at progress 0 and 4
             }
             font.pixelSize: 24

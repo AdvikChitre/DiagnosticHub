@@ -5,6 +5,7 @@ import './index.css'
 import Home from './Home.jsx'
 import Auth from './Auth.jsx'
 import Device from './Device.jsx'
+import Help from './Help.jsx'
 
 // Set the server IP for global usage
 const SERVER_IP = 'localhost';
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/login" element={<Auth />} />
         <Route path="/home" element={<Home />} />
         <Route path="/device" element={<Device />} />
+        <Route path="/help" element={<Help />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>

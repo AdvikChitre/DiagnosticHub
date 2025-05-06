@@ -3,9 +3,16 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Dialogs
 import "../common"
+import "../"
 
 Item {
-    signal selected(int deviceIndex)
+    signal selected(var device)
+
+    Component.onCompleted: {
+        console.log(appStorage.availableDevices.wearables[0].name)
+        console.log(appStorage.availableDevices.wearables[0].description)
+        console.log(JSON.stringify(appStorage.availableDevices.wearables))
+    }
 
     ColumnLayout {
         anchors.fill: parent
@@ -44,24 +51,28 @@ Item {
                     id: confirmationDialog
                     // title: "Confirm Selection"
                     buttons: MessageDialog.Ok | MessageDialog.Cancel
-                    onAccepted: selected(selectedIndex)
+                    onAccepted: {
+                        console.log("Selected Devices", appStorage.selectedDevices)
+                        selected(selectedDevice)
+                        console.log("Selected Devices", appStorage.selectedDevices)
+                    }
 
-                    property int selectedIndex: -1
+                    property var selectedDevice: null
                 }
 
                 Repeater {
-                    model: deviceList // defined in c++
+                    model: appStorage.availableDevices.wearables // deviceList // defined in c++
 
                     Loader {
                         active: SwipeView.isCurrentItem || SwipeView.isNextItem || SwipeView.isPreviousItem
                         sourceComponent: DeviceCard {
-                            name: model.name
-                            label: model.description
+                            name: modelData.name || "ERROR: NO NAME"
+                            label: modelData.description || ""
 
                             // Confirm when dialog selected
                             onClicked: {
-                                confirmationDialog.title = "Confirm " + model.name
-                                confirmationDialog.selectedIndex = index
+                                confirmationDialog.title = "Confirm: " + modelData.name
+                                confirmationDialog.selectedDevice = modelData
                                 confirmationDialog.open()
                             }
                         }

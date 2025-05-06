@@ -6,7 +6,7 @@ function Home() {
     const [devices, setDevices] = useState([]);
     const [error, setError] = useState(null);
 
-    // Disable scoll
+    // Disable scroll
     document.body.style.overflow = 'hidden';
 
     const loadPage = () => {
@@ -18,7 +18,7 @@ function Home() {
         }
 
         // Fetch devices
-        fetch(`${SERVER_URL}/api/wearables`, {
+        fetch(`${SERVER_URL}/api/wearables/list`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
             },
@@ -105,23 +105,23 @@ function Home() {
             const nameRequest = { name: input.value };
             const token = localStorage.getItem('jwtToken');
 
-            fetch(`${SERVER_URL}/api/wearable/add`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`,
-            },
-            body: JSON.stringify(nameRequest)
+            fetch(`${SERVER_URL}/api/wearables/add`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify(nameRequest)
             })
             .then(response => {
                 if (!response.ok) {
-                throw new Error('Error adding device');
+                    throw new Error('Error adding device');
                 }
                 return response.json();
             })
             .then(data => {
                 console.log('Device added successfully:', data.message);
-                loadPage()
+                loadPage();
             })
             .catch(err => {
                 console.error(err);
@@ -176,6 +176,20 @@ function Home() {
                     +
                 </button>
             </div>
+            <a 
+                href="/help"
+                style={{
+                    position: 'fixed',
+                    bottom: '10px',
+                    right: '10px',
+                    color: 'blue',
+                    textDecoration: 'underline',
+                    cursor: 'pointer',
+                    fontSize: '20px'
+                }}
+            >
+                Help
+            </a>
         </>
     );
 }
