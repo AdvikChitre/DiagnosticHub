@@ -1,7 +1,7 @@
 CREATE DATABASE IF NOT EXISTS diagnostichub;
 USE diagnostichub;
 
--- Users Table
+-- Users
 CREATE TABLE IF NOT EXISTS manufacturers (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) UNIQUE NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS manufacturers (
 INSERT INTO manufacturers (name, password, email)
 VALUES ('Acurable', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8', 'someone@acurable.com');
 
--- Wearables Table
+-- Wearables
 CREATE TABLE IF NOT EXISTS wearables (
     id INT AUTO_INCREMENT PRIMARY KEY,
     manufacturer INT NOT NULL,
@@ -32,7 +32,19 @@ CREATE TABLE IF NOT EXISTS wearables (
 INSERT INTO wearables (manufacturer, name, description, forwarding_address, forwarding_port, is_enabled, record_type, version)
 VALUES (1, 'AcuPebble', 'Sleep Aponea Diagnostic Tool', 'http://google.com', 8080, true, 'manual', '1.0');
 
--- Studies Table
+-- Questions
+CREATE TABLE IF NOT EXISTS questions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    wearable INT NOT NULL,
+    question TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (wearable) REFERENCES wearables(id)
+);
+
+INSERT INTO questions (wearable, question)
+VALUES (1, 'How much did you sleep last night?');
+
+-- Studies
 CREATE TABLE IF NOT EXISTS studies (
     id INT AUTO_INCREMENT PRIMARY KEY,
     wearable INT NOT NULL,
