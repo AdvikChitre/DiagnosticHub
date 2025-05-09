@@ -18,6 +18,8 @@
 
 #include <QQmlEngine>
 
+#include "buffer.h"
+
 QT_BEGIN_NAMESPACE
 class QBluetoothDeviceInfo;
 class QBluetoothUuid;
@@ -51,6 +53,8 @@ public:
     bool isRandomAddress() const;
     void setRandomAddress(bool newValue);
 
+    Buffer* buffer() const { return m_buffer; }
+
 public slots:
     void startDeviceDiscovery();
     void stopDeviceDiscovery();
@@ -75,6 +79,9 @@ private slots:
     // QLowEnergyService related
     void serviceDetailsDiscovered(QLowEnergyService::ServiceState newState);
 
+    // Notifications
+    void handleCharacteristicChanged(const QLowEnergyCharacteristic &info, const QByteArray &value);
+
 Q_SIGNALS:
     void devicesUpdated();
     void servicesUpdated();
@@ -97,6 +104,7 @@ private:
     QLowEnergyController *controller = nullptr;
     bool m_deviceScanState = false;
     bool randomAddress = false;
+    Buffer* m_buffer = nullptr;
 };
 
 #endif // DEVICE_H

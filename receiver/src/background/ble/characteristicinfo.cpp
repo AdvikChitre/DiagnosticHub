@@ -8,17 +8,25 @@
 
 #include <QByteArray>
 
+
 using namespace Qt::StringLiterals;
 
 CharacteristicInfo::CharacteristicInfo(const QLowEnergyCharacteristic &characteristic):
     m_characteristic(characteristic)
-{
-}
+{}
 
 void CharacteristicInfo::setCharacteristic(const QLowEnergyCharacteristic &characteristic)
 {
     m_characteristic = characteristic;
     emit characteristicChanged();
+}
+
+void CharacteristicInfo::setValue(const QByteArray &newValue)
+{
+    if (m_value != newValue) {
+        m_value = newValue;
+        emit valueChanged(); // Emit when value changes
+    }
 }
 
 QString CharacteristicInfo::getName() const
@@ -62,7 +70,7 @@ QString CharacteristicInfo::getUuid() const
 QString CharacteristicInfo::getValue() const
 {
     // Show raw string first and hex value below
-    QByteArray a = m_characteristic.value();
+    QByteArray a = m_value;
     QString result;
     if (a.isEmpty()) {
         result = u"<none>"_s;

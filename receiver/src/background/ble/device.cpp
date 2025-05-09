@@ -2,7 +2,10 @@
 // Copyright (C) 2017 The Qt Company Ltd.
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR BSD-3-Clause
 
-#include "device.h"
+#include "src/background/ble/device.h"
+// #include "device.h"
+#include "datapacket.h"
+
 
 #include <QBluetoothDeviceInfo>
 #include <QBluetoothUuid>
@@ -35,6 +38,8 @@ Device::Device()
     //! [les-devicediscovery-1]
 
     setUpdate(u"Search"_s);
+
+    m_buffer = new Buffer(this);
 }
 
 Device::~Device()
@@ -308,8 +313,20 @@ void Device::serviceDetailsDiscovered(QLowEnergyService::ServiceState newState)
     const QList<QLowEnergyCharacteristic> chars = service->characteristics();
     for (const QLowEnergyCharacteristic &ch : chars) {
         auto cInfo = new CharacteristicInfo(ch);
+        cInfo->setValue(ch.value()); // Initialize with current value
         m_characteristics.append(cInfo);
+
+        if (ch.properties() & (QLowEnergyCharacteristic::Notify | QLowEnergyCharacteristic::Indicate)) {
+            QLowEnergyDescriptor cccd = ch.descriptor(QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
+            if (cccd.isValid()) {
+                service->writeDescriptor(cccd, QByteArray::fromHex("0100"));
+            }
+        }
     }
+
+    // Connect to notify about changes
+    connect(service, &QLowEnergyService::characteristicChanged,
+            this, &Device::handleCharacteristicChanged);
     //! [les-chars]
 
     emit characteristicsUpdated();
@@ -350,4 +367,25 @@ void Device::setRandomAddress(bool newValue)
 {
     randomAddress = newValue;
     emit randomAddressChanged();
+}
+
+// Handle notification characteristic value changes
+void Device::handleCharacteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
+{
+    // Update the corresponding CharacteristicInfo
+    for (CharacteristicInfo *cInfo : std::as_const(m_characteristics)) {
+        if (cInfo->getCharacteristic().uuid() == characteristic.uuid()) {
+            cInfo->setValue(newValue);
+            // Add to shared buffer
+            DataPacket packet;
+            packet.timestamp = QDateTime::currentDateTime();
+            packet.data = newValue;  // Or process data as needed
+
+            m_buffer->addData(packet);
+            break;
+        }
+    }
+    emit characteristicsUpdated(); // Refresh UI
+
+    qDebug() << "Added to buffer. Current buffer size:" << m_buffer->memorySize();
 }

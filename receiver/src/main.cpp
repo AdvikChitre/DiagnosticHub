@@ -1,64 +1,79 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
-// #include "./devices/device.h"
-// #include "./devices/devicelist.h"
-// #include <applicationsettings.h>
-// #include "./settings/item/wifi/wifiscanner.h"
+#include <QThread>
 #include "./request/networkmanager.h"
-// #include "./settings/item/settingsapp/DeviceUtilities/QtButtonImageProvider/qtbuttonimageprovider.h"
-#include "background/ble/characteristicinfo.h"
-#include "background/ble/device.h"
-#include "background/ble/deviceinfo.h"
-#include "background/ble/serviceinfo.h"
+#include "src/background/ble/characteristicinfo.h"
+#include "src/background/ble/device.h"
+#include "src/background/ble/deviceinfo.h"
+#include "src/background/ble/serviceinfo.h"
+#include "src/background/buffer/senderworker.h"
+
+bool simulator = false;
 
 int main(int argc, char *argv[])
 {
     qputenv("QT_IM_MODULE", QByteArray("qtvirtualkeyboard"));
-
-    // Set organisation info
     QCoreApplication::setOrganizationName("Imperial College London");
     QCoreApplication::setOrganizationDomain("imperial.ac.uk");
 
     QGuiApplication app(argc, argv);
 
-    // Register BLE helper types
-    qmlRegisterType<CharacteristicInfo>("BLE", 1, 0, "CharacteristicInfo");
-    qmlRegisterSingletonType<Device>("BLE", 1, 0, "Device", [](QQmlEngine *, QJSEngine *) -> QObject * {
-        static Device deviceInstance;
-        return &deviceInstance;
-    });
-    qmlRegisterType<DeviceInfo>    ("BLE", 1, 0, "DeviceInfo");
-    qmlRegisterType<ServiceInfo>   ("BLE", 1, 0, "ServiceInfo");
+    // Create Device & buffer early
+    Device *deviceInstance = new Device;
 
-
-    // Register Network Manager
+    // QML type registrations...
+    qmlRegisterType<CharacteristicInfo>("receiver", 1, 0, "CharacteristicInfo");
+    qmlRegisterSingletonInstance<Device>("receiver", 1, 0, "Device", deviceInstance);
+    qmlRegisterType<DeviceInfo>("receiver", 1, 0, "DeviceInfo");
+    qmlRegisterType<ServiceInfo>("receiver", 1, 0, "ServiceInfo");
     qmlRegisterType<NetworkManager>("Network", 1, 0, "NetworkManager");
 
+    // Set up the sender thread & worker
+    QThread *senderThread = new QThread(&app);
+
+    Buffer *sharedBuffer = deviceInstance->buffer();
+    SenderWorker *senderWorker = new SenderWorker(
+        sharedBuffer,
+        QStringLiteral("http://192.168.215.199:3000/api/test")
+        );
+
+    senderWorker->moveToThread(senderThread);
+
+    // When the thread starts, call start()
+    QObject::connect(senderThread, &QThread::started,
+                     senderWorker, &SenderWorker::start);
+
+    // Clean up when done
+    QObject::connect(senderWorker, &SenderWorker::finished,
+                     senderThread, &QThread::quit);
+    QObject::connect(senderThread, &QThread::finished,
+                     senderWorker, &QObject::deleteLater);
+    QObject::connect(senderThread, &QThread::finished,
+                     senderThread, &QObject::deleteLater);
+
+    // (Optional) track success / error
+    QObject::connect(senderWorker, &SenderWorker::packetSent,
+                     [](int id){ qDebug() << "Packet" << id << "sent"; });
+    QObject::connect(senderWorker, &SenderWorker::sendError,
+                     [](int id, const QString &err){ qWarning() << "Packet" << id << "error:" << err; });
+
+    senderThread->start();
+    senderThread->setPriority(QThread::LowPriority);
+
+    // QML engine
     QQmlApplicationEngine engine;
-    // engine.addImageProvider("buttonimages", new QtButtonImageProvider);
-    QObject::connect(
-        &engine,
-        &QQmlApplicationEngine::objectCreationFailed,
-        &app,
-        []() { QCoreApplication::exit(-1); },
-        Qt::QueuedConnection);
+    QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
+                     &app, [](){ QCoreApplication::exit(-1); },
+                     Qt::QueuedConnection);
     engine.loadFromModule("receiver", "Main");
 
-
-
-    // Create list of avaiable devices
-    // DeviceList deviceList;
-
-    // QSet<QString> questions1 = {"Question1"};
-    // Device *device1 = new Device("Acupebble", "Obstructive Sleep Apnoea Diagnosis", questions1);
-    // deviceList.addDevice(device1);
-
-    // QSet<QString> questions2 = {"Question1", "Question2"};
-    // Device *device2 = new Device("Device2", "Description2", questions2);
-    // deviceList.addDevice(device2);
-
-    // engine.rootContext()->setContextProperty("deviceList", &deviceList);
+    // Make sure to tear down cleanly on quit
+    QObject::connect(&app, &QGuiApplication::aboutToQuit, [=]() {
+        senderWorker->stop();
+        senderThread->quit();
+        senderThread->wait();
+    });
 
     return app.exec();
 }
