@@ -51,3 +51,11 @@ int Buffer::memorySize() const {
     QMutexLocker locker(&m_mutex);
     return m_memoryBuffer.size();
 }
+
+int Buffer::databaseSize() const {
+    return m_database.rowCount();
+}
+
+void Buffer::cleanDatabase() {
+    m_database.cleanup();
+}

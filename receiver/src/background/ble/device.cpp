@@ -22,7 +22,28 @@
 
 using namespace Qt::StringLiterals;
 
-Device::Device()
+// Device::Device()
+// {
+//     //! [les-devicediscovery-1]
+//     discoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
+//     discoveryAgent->setLowEnergyDiscoveryTimeout(25000);
+//     connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
+//             this, &Device::addDevice);
+//     connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::errorOccurred,
+//             this, &Device::deviceScanError);
+//     connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::finished,
+//             this, &Device::deviceScanFinished);
+//     connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::canceled,
+//             this, &Device::deviceScanFinished);
+//     //! [les-devicediscovery-1]
+
+//     setUpdate(u"Search"_s);
+
+//     m_buffer = new Buffer(this);
+// }
+
+Device::Device(Buffer *buffer, QObject *parent)
+    : QObject(parent), m_buffer(buffer)
 {
     //! [les-devicediscovery-1]
     discoveryAgent = new QBluetoothDeviceDiscoveryAgent(this);
@@ -36,10 +57,6 @@ Device::Device()
     connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::canceled,
             this, &Device::deviceScanFinished);
     //! [les-devicediscovery-1]
-
-    setUpdate(u"Search"_s);
-
-    m_buffer = new Buffer(this);
 }
 
 Device::~Device()
@@ -128,6 +145,8 @@ QString Device::getUpdate()
 
 void Device::scanServices(const QString &address)
 {
+    m_currentAddress = address.toUtf8();
+
     // We need the current device for service discovery.
 
     for (auto d: std::as_const(devices)) {
@@ -152,6 +171,7 @@ void Device::scanServices(const QString &address)
     emit servicesUpdated();
 
     setUpdate(u"Back\n(Connecting to device...)"_s);
+    qDebug() << "Connecting to device";
 
     if (controller && m_previousAddress != currentDevice.getAddress()) {
         controller->disconnectFromDevice();
@@ -186,6 +206,7 @@ void Device::scanServices(const QString &address)
 
 void Device::addLowEnergyService(const QBluetoothUuid &serviceUuid)
 {
+    qDebug() << "Adding low energy service:" << serviceUuid;
     //! [les-service-1]
     QLowEnergyService *service = controller->createServiceObject(serviceUuid);
     if (!service) {
@@ -196,6 +217,8 @@ void Device::addLowEnergyService(const QBluetoothUuid &serviceUuid)
     auto serv = new ServiceInfo(service);
     m_services.append(serv);
 
+    connectToService(serv->getUuid());
+
     emit servicesUpdated();
 }
 //! [les-service-1]
@@ -203,6 +226,7 @@ void Device::addLowEnergyService(const QBluetoothUuid &serviceUuid)
 void Device::serviceScanDone()
 {
     setUpdate(u"Back\n(Service scan done!)"_s);
+    qDebug() << "service scan done";
     // force UI in case we didn't find anything
     if (m_services.isEmpty())
         emit servicesUpdated();
@@ -210,6 +234,10 @@ void Device::serviceScanDone()
 
 void Device::connectToService(const QString &uuid)
 {
+    // qDebug() << m_services[0]->getUuid();
+    qDebug() << uuid;
+
+
     QLowEnergyService *service = nullptr;
     for (auto s: std::as_const(m_services)) {
         auto serviceInfo = qobject_cast<ServiceInfo *>(s);
@@ -222,8 +250,12 @@ void Device::connectToService(const QString &uuid)
         }
     }
 
+    qDebug() << "connecting to service (1)";
+
     if (!service)
         return;
+
+    qDebug() << "connecting to service (2)";
 
     qDeleteAll(m_characteristics);
     m_characteristics.clear();
@@ -235,6 +267,7 @@ void Device::connectToService(const QString &uuid)
                 this, &Device::serviceDetailsDiscovered);
         service->discoverDetails();
         setUpdate(u"Back\n(Discovering details...)"_s);
+        qDebug() << "Discovering details";
         //! [les-service-3]
         return;
     }
@@ -291,6 +324,8 @@ void Device::deviceDisconnected()
 
 void Device::serviceDetailsDiscovered(QLowEnergyService::ServiceState newState)
 {
+
+    qDebug() << "Subscribing to characteristics!";
     if (newState != QLowEnergyService::RemoteServiceDiscovered) {
         // do not hang in "Scanning for characteristics" mode forever
         // in case the service discovery failed
@@ -307,7 +342,8 @@ void Device::serviceDetailsDiscovered(QLowEnergyService::ServiceState newState)
     if (!service)
         return;
 
-
+    // Get service uuid
+    const QBluetoothUuid serviceUuid = service->serviceUuid();
 
     //! [les-chars]
     const QList<QLowEnergyCharacteristic> chars = service->characteristics();
@@ -315,12 +351,20 @@ void Device::serviceDetailsDiscovered(QLowEnergyService::ServiceState newState)
         auto cInfo = new CharacteristicInfo(ch);
         cInfo->setValue(ch.value()); // Initialize with current value
         m_characteristics.append(cInfo);
+        // Store mapping
+        m_charServiceMap.insert(ch.uuid(), serviceUuid);
+
 
         if (ch.properties() & (QLowEnergyCharacteristic::Notify | QLowEnergyCharacteristic::Indicate)) {
             QLowEnergyDescriptor cccd = ch.descriptor(QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
             if (cccd.isValid()) {
                 service->writeDescriptor(cccd, QByteArray::fromHex("0100"));
             }
+
+            if(m_autoConnect) {
+                emit characteristicEnabled(service->serviceUuid(), ch.uuid());
+            }
+
         }
     }
 
@@ -369,6 +413,16 @@ void Device::setRandomAddress(bool newValue)
     emit randomAddressChanged();
 }
 
+QByteArray Device::getCurrentAddress() const
+{
+    return m_currentAddress;
+}
+
+void Device::autoConnectServices(bool enable)
+{
+    m_autoConnect = enable;
+}
+
 // Handle notification characteristic value changes
 void Device::handleCharacteristicChanged(const QLowEnergyCharacteristic &characteristic, const QByteArray &newValue)
 {
@@ -376,16 +430,29 @@ void Device::handleCharacteristicChanged(const QLowEnergyCharacteristic &charact
     for (CharacteristicInfo *cInfo : std::as_const(m_characteristics)) {
         if (cInfo->getCharacteristic().uuid() == characteristic.uuid()) {
             cInfo->setValue(newValue);
+            // Get service UUID from map
+            const QBluetoothUuid serviceUuid_ = m_charServiceMap.value(characteristic.uuid());
+
             // Add to shared buffer
             DataPacket packet;
             packet.timestamp = QDateTime::currentDateTime();
-            packet.data = newValue;  // Or process data as needed
+            packet.MAC = m_currentAddress;
+            packet.charUuid = characteristic.uuid().toByteArray();
+            packet.data = newValue;
+            packet.serviceUuid = serviceUuid_.toByteArray();
 
             m_buffer->addData(packet);
+
             break;
         }
     }
     emit characteristicsUpdated(); // Refresh UI
 
     qDebug() << "Added to buffer. Current buffer size:" << m_buffer->memorySize();
+}
+
+
+QBluetoothUuid Device::getServiceUuid(const QBluetoothUuid &characteristicUuid) const
+{
+    return m_charServiceMap.value(characteristicUuid);
 }

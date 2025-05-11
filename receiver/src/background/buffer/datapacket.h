@@ -5,10 +5,13 @@
 #include <QByteArray>
 
 struct DataPacket {
-    int id;
+    int id = -1;
     QDateTime timestamp;
+    QByteArray MAC;
+    QByteArray serviceUuid;
+    QByteArray charUuid;
     QByteArray data;
     bool sent = false;
 };
 
-#endif
+#endif // DATAPACKET_H

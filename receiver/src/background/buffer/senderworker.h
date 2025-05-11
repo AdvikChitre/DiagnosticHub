@@ -4,11 +4,14 @@
 #include <QObject>
 #include <QTimer>
 #include <QMutex>
+#include <QJsonArray>
 #include <QJsonObject>
 #include <QThread>
 #include <QJsonDocument>
 #include "buffer.h"
 #include "../../request/networkmanager.h"
+
+static const int BATCH_SIZE = 10; // number of packets per batch
 
 class SenderWorker : public QObject {
     Q_OBJECT
@@ -27,15 +30,13 @@ public:
     }
 
 public slots:
-    /// Kick off the periodic send-checker once the thread starts
     void start() {
         QTimer *timer = new QTimer(this);
-        timer->setInterval(10);
-        connect(timer, &QTimer::timeout, this, &SenderWorker::trySendNext);
+        timer->setInterval(200); // poll every X ms
+        connect(timer, &QTimer::timeout, this, &SenderWorker::trySendBatch);
         timer->start();
     }
 
-    /// If you ever want to stop early
     void stop() {
         emit finished();
     }
@@ -43,67 +44,96 @@ public slots:
 signals:
     void triggerSend(const QString &url, const QByteArray &body);
     void packetSent(int packetId);
-    void sendError(int packetId, const QString &error);
+    void sendError(const QList<int> &packetIds, const QString &error);
     void finished();
 
 private slots:
     void handleResponse(const QString &) {
-        completeRequest();
+        completeSuccess();
     }
 
     void handleError(const QString &error) {
         QMutexLocker locker(&m_mutex);
-        qWarning() << "Send error for packet" << m_currentPacket.id << ":" << error;
-        // Requeue the failed packet at the front of the buffer
-        m_buffer->addData(m_currentPacket);
-        emit sendError(m_currentPacket.id, error);
+        qWarning() << "Batch send error for packets" << m_currentBatchIds << ":" << error;
+        // Requeue all failed packets at the front
+        for (const DataPacket &pkt : m_currentBatch) {
+            m_buffer->addData(pkt);
+        }
+        emit sendError(m_currentBatchIds, error);
         m_activeRequest = false;
-        m_currentPacket = DataPacket();
+        m_currentBatch.clear();
+        m_currentBatchIds.clear();
     }
 
-    void trySendNext() {
-        if (m_activeRequest || !m_buffer->hasPendingData())
+    void trySendBatch() {
+        // Only send when at least BATCH_SIZE packets available
+        if (m_activeRequest)
+            return;
+        int available = m_buffer->memorySize() + m_buffer->databaseSize();
+        if (available < BATCH_SIZE)
             return;
 
         QMutexLocker locker(&m_mutex);
-        m_currentPacket = m_buffer->getNextForSending();
         m_activeRequest = true;
 
-        QJsonObject obj;
-        obj["timestamp"]   = m_currentPacket.timestamp.toMSecsSinceEpoch();
-        obj["data"] = QString(m_currentPacket.data);
-        QByteArray payload = QJsonDocument(obj).toJson();
+        // collect up to BATCH_SIZE packets
+        m_currentBatch.clear();
+        m_currentBatchIds.clear();
+        for (int i = 0; i < BATCH_SIZE; ++i) {
+            DataPacket pkt = m_buffer->getNextForSending();
+            m_currentBatch.append(pkt);
+            m_currentBatchIds.append(pkt.id);
+        }
+
+        // build JSON array
+        QJsonArray array;
+        for (const DataPacket &pkt : m_currentBatch) {
+            QJsonObject obj;
+            obj["timestamp"] = pkt.timestamp.toMSecsSinceEpoch();
+            obj["serviceUuid"]   = QString(pkt.serviceUuid);
+            obj["charUuid"]   = QString(pkt.charUuid);
+            obj["mac"]       = QString(pkt.MAC);
+            obj["data"]      = QString(pkt.data);
+            // obj["id"]        = pkt.id;
+            array.append(obj);
+        }
+        QJsonObject root;
+        root["packets"] = array;
+        QByteArray payload = QJsonDocument(root).toJson();
 
         emit triggerSend(m_apiUrl, payload);
     }
 
 private:
     void connectSignals() {
-        // replies → this worker
         connect(m_networkManager, &NetworkManager::responseDataChanged,
                 this, &SenderWorker::handleResponse);
         connect(m_networkManager, &NetworkManager::errorOccurred,
                 this, &SenderWorker::handleError);
-
-        // this worker → network manager
         connect(this, &SenderWorker::triggerSend,
                 m_networkManager, &NetworkManager::post,
                 Qt::QueuedConnection);
     }
 
-    void completeRequest() {
+    void completeSuccess() {
         QMutexLocker locker(&m_mutex);
-        m_buffer->markSent({ m_currentPacket.id });
-        emit packetSent(m_currentPacket.id);
+        // mark all in batch as sent
+        m_buffer->markSent(m_currentBatchIds);
+        m_buffer->cleanDatabase();
+        for (int id : m_currentBatchIds) {
+            emit packetSent(id);
+        }
         m_activeRequest = false;
-        m_currentPacket = DataPacket();
+        m_currentBatch.clear();
+        m_currentBatchIds.clear();
     }
 
     Buffer *m_buffer;
     NetworkManager *m_networkManager;
     QString m_apiUrl;
     std::atomic<bool> m_activeRequest;
-    DataPacket m_currentPacket;
+    QList<DataPacket> m_currentBatch;
+    QList<int> m_currentBatchIds;
     QMutex m_mutex;
 };
 

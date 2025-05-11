@@ -90,6 +90,9 @@ qt_add_qml_module(appreceiver
         src/settings/item/wifi/PassphraseEnter.qml
         src/setup/SetupScreen.qml
         src/setup/DeviceCard.qml
+        src/setup/ActivationScreen.qml
+        src/setup/DateOfBirthPopup.qml
+        src/setup/DateDigitField.qml
     SOURCES
         src/background/notification/notification.h src/background/notification/notification.cpp
         src/background/audioplayer.h src/background/audioplayer.cpp
@@ -102,6 +105,7 @@ qt_add_qml_module(appreceiver
         src/background/buffer/database.h src/background/buffer/database.cpp
         src/background/buffer/datapacket.h
         src/background/buffer/senderworker.h
+        src/background/ble/connectionworker.h src/background/ble/connectionworker.cpp
 )
 
 target_link_libraries(appreceiver

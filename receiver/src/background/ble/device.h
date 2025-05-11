@@ -41,7 +41,8 @@ class Device: public QObject
     QML_SINGLETON
 
 public:
-    Device();
+    // Device();
+    explicit Device(Buffer *buffer = nullptr, QObject *parent = nullptr);
     ~Device();
     QVariant getDevices();
     QVariant getServices();
@@ -54,6 +55,9 @@ public:
     void setRandomAddress(bool newValue);
 
     Buffer* buffer() const { return m_buffer; }
+    QByteArray getCurrentAddress() const;
+    void autoConnectServices(bool enable);
+    QBluetoothUuid getServiceUuid(const QBluetoothUuid &characteristicUuid) const;
 
 public slots:
     void startDeviceDiscovery();
@@ -90,6 +94,9 @@ Q_SIGNALS:
     void stateChanged();
     void disconnected();
     void randomAddressChanged();
+    void serviceDiscovered(const QString &serviceUuid);
+    void characteristicEnabled(const QBluetoothUuid &serviceUuid,
+                               const QBluetoothUuid &characteristicUuid);
 
 private:
     void setUpdate(const QString &message);
@@ -105,6 +112,9 @@ private:
     bool m_deviceScanState = false;
     bool randomAddress = false;
     Buffer* m_buffer = nullptr;
+    bool m_autoConnect = false;
+    QByteArray m_currentAddress;
+    QMap<QBluetoothUuid, QBluetoothUuid> m_charServiceMap;
 };
 
 #endif // DEVICE_H

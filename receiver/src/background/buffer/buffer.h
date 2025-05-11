@@ -10,13 +10,13 @@ class Buffer : public QObject {
     Q_OBJECT
 public:
     explicit Buffer(QObject *parent = nullptr);
-
     void addData(const DataPacket &packet);
     DataPacket getNextForSending();
     bool hasPendingData() const;
     int memorySize() const;
-    int databaseSize() const { return m_database.rowCount(); }
+    int databaseSize() const;
     int totalSize()    const { return memorySize() + databaseSize(); }
+    void cleanDatabase();
 
 private:
     void checkThreshold();

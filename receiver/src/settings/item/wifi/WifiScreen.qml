@@ -21,7 +21,7 @@ Item {
     // Fixed Title
     Text {
         id: title
-        text: qsTr("Wi-Fi")
+        text: qsTr("Select a Wi-Fi Network")
         anchors.top: parent.top
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: 32
