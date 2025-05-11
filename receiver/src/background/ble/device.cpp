@@ -57,7 +57,6 @@ Device::Device(Buffer *buffer, QObject *parent)
     connect(discoveryAgent, &QBluetoothDeviceDiscoveryAgent::canceled,
             this, &Device::deviceScanFinished);
     //! [les-devicediscovery-1]
-
 }
 
 Device::~Device()
@@ -355,6 +354,7 @@ void Device::serviceDetailsDiscovered(QLowEnergyService::ServiceState newState)
         // Store mapping
         m_charServiceMap.insert(ch.uuid(), serviceUuid);
 
+
         if (ch.properties() & (QLowEnergyCharacteristic::Notify | QLowEnergyCharacteristic::Indicate)) {
             QLowEnergyDescriptor cccd = ch.descriptor(QBluetoothUuid::DescriptorType::ClientCharacteristicConfiguration);
             if (cccd.isValid()) {
@@ -364,6 +364,7 @@ void Device::serviceDetailsDiscovered(QLowEnergyService::ServiceState newState)
             if(m_autoConnect) {
                 emit characteristicEnabled(service->serviceUuid(), ch.uuid());
             }
+
         }
     }
 

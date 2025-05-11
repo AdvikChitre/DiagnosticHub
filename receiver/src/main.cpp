@@ -10,7 +10,6 @@
 #include "src/background/buffer/senderworker.h"
 #include "src/background/ble/connectionworker.h"
 
-
 bool simulator = false;
 
 int main(int argc, char *argv[])

@@ -105,8 +105,7 @@ qt_add_qml_module(appreceiver
         src/background/buffer/database.h src/background/buffer/database.cpp
         src/background/buffer/datapacket.h
         src/background/buffer/senderworker.h
-        SOURCES src/background/ble/connectionworker.h src/background/ble/connectionworker.cpp
-
+        src/background/ble/connectionworker.h src/background/ble/connectionworker.cpp
 )
 
 target_link_libraries(appreceiver
