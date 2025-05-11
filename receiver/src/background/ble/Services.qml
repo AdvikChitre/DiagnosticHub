@@ -4,7 +4,7 @@
 
 pragma ComponentBehavior: Bound
 import QtQuick
-import BLE
+import receiver
 
 Rectangle {
     id: servicesPage

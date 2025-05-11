@@ -1,3 +1,5 @@
+#pragma once
+
 #include <QObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
@@ -16,7 +18,7 @@ public slots:
     void post(const QString &url, const QByteArray &data);
 
 signals:
-    void responseReceived(const QString &response);
+    // void responseReceived(const QString &response);
     void responseDataChanged(const QString &data);
     void errorOccurred(const QString &error);
 

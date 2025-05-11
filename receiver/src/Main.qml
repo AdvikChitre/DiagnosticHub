@@ -27,6 +27,7 @@ ApplicationWindow {
     title: qsTr("Hello World")
     // color: "#2adbde"
     color: "#ef476f"
+    property bool storageReady: false
 
     // Persistent settings
     Settings {
@@ -34,9 +35,11 @@ ApplicationWindow {
         category: "AppConfig"
         property string baseUrl: "http://192.168.215.199:3000/"
 
+        // Global device info
         property var availableDevices: []
         property bool onboardingCompleted: false
 
+        // Current Session
         property var selectedDevices: []
         property string selectedLanguage: "en"
         property string selectedTheme: "light"
@@ -55,6 +58,7 @@ ApplicationWindow {
         onResponseDataChanged: {
             console.log(appStorage.availableDevices)
             appStorage.availableDevices = JSON.parse(network.responseData)
+            console.log(JSON.stringify(JSON.parse(network.responseData).wearables))
             console.log(appStorage.availableDevices)
             console.log(appStorage.availableDevices.wearables[0].manufacturer)
         }
@@ -63,9 +67,10 @@ ApplicationWindow {
 
     // On start
     Component.onCompleted: {
+        storageReady = true
         // Display debug state info
         console.log("Available Devices:", appStorage.availableDevices)
-        console.log("Selected Devices:", appStorage.selectedDevices.length)
+        console.log("Selected Devices:", appStorage.selectedDevices)
         console.log("Request URL:", Constants.baseUrl+"api/wearables/config")
         network.get(Constants.baseUrl + "api/wearables/config")
     }
@@ -76,7 +81,7 @@ ApplicationWindow {
         OnboardingScreen {
             onCompleted: {
                 console.log(appStorage.onboardingCompleted)
-                screenStack.push(wifiScreen)
+                stackLoader.item.push(wifiScreen)
             }
         }
     }
@@ -87,27 +92,27 @@ ApplicationWindow {
             anchors.fill: parent
             // anchors.bottomMargin: parent.height - inputPanel.y
             onNext: {
-                screenStack.push(setupScreen)
+                stackLoader.item.push(activationScreen)
             }
         }
     }
 
-    Component {
-        id: setupScreen
-        SetupScreen {
-            onSelected: (device) => {
-                appStorage.selectedDevices.push(device)
-                console.log(appStorage.selectedDevices)
-                screenStack.replace(homeScreen)
-            }
-        }
-    }
+    // Component {
+    //     id: setupScreen
+    //     SetupScreen {
+    //         onSelected: (device) => {
+    //             appStorage.selectedDevices.push(device)
+    //             console.log(appStorage.selectedDevices)
+    //             stackLoader.item.replace(homeScreen)
+    //         }
+    //     }
+    // }
 
     Component {
         id: homeScreen
         HomeScreen {
             onSettings: {
-                screenStack.push(settingsScreen)
+                stackLoader.item.push(settingsScreen)
             }
         }
     }
@@ -117,10 +122,10 @@ ApplicationWindow {
         SettingsScreen {
             onSettingsUpdated: {
                 appSettings.sync()
-                screenStack.pop()
+                stackLoader.item.pop()
             }
             onSettingsCancelled: {
-                screenStack.pop()
+                stackLoader.item.pop()
             }
         }
     }
@@ -130,17 +135,39 @@ ApplicationWindow {
         BLETest { }
     }
 
-    // Screen Manager
-    StackView {
-        id: screenStack
-        initialItem: appStorage.selectedDevices.length == 0 ? bleTestScreen : homeScreen
-        anchors.fill: parent
-        onCurrentItemChanged: console.log("Current screen:", currentItem)
+    Component {
+        id: activationScreen
+        ActivationScreen {
+            onActivation: {
+                stackLoader.item.replace(homeScreen)
+            }
+        }
     }
 
-    // // Import and use keyboard component
-    // Keyboard {
-    //     id: keyboard
-    //     rootWindow: mainWindow
-    // }
+    // Screen Stack System
+    Component {
+        id: stackComponent
+        StackView {
+            initialItem: appStorage.selectedDevices.length === 0 ? onboardingScreen : homeScreen
+            anchors.fill: parent
+        }
+    }
+
+    // Load the screen stack after settings ready
+    Loader {
+        id: stackLoader
+        anchors.fill: parent
+        sourceComponent: {
+            if (!mainWindow.storageReady) return undefined // Wait for settings
+            return stackComponent
+        }
+    }
+
+
+
+    // Import and use keyboard component
+    Keyboard {
+        id: keyboard
+        rootWindow: mainWindow
+    }
 }

@@ -23,19 +23,23 @@ find_package(
         Quick
         Multimedia
         Network
-        # NetworkSettings
         QuickControls2
         Bluetooth
+        Sql
 )
 
 qt_standard_project_setup(REQUIRES 6.5)
 
-# add_subdirectory(src/settings/item/settingsapp)
 # add_subdirectory(extern/qtotaupdate)
 
 qt_add_executable(appreceiver
     src/main.cpp
 )
+
+# Add include directory for the project's source files
+target_include_directories(appreceiver PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+INCLUDE_DIRECTORIES("src/background/ble")
+INCLUDE_DIRECTORIES("src/background/buffer")
 
 set_source_files_properties(src/common/Constants.qml PROPERTIES
     QT_QML_SINGLETON_TYPE TRUE
@@ -83,23 +87,26 @@ qt_add_qml_module(appreceiver
         src/settings/item/notifications/Notifications.qml
         src/settings/item/notifications/RoundedSwitch.qml
         src/settings/item/wifi/WifiScreen.qml
-        # src/settings/item/wifi/WifiSelectorDelegate.qml
-        # src/settings/item/wifi/ComboBoxEntry.qml
-        # src/settings/item/wifi/CredentialDialog.qml
         src/settings/item/wifi/PassphraseEnter.qml
-        # src/settings/item/wifi/WifiSettings.qml
         src/setup/SetupScreen.qml
         src/setup/DeviceCard.qml
+        src/setup/ActivationScreen.qml
+        src/setup/DateOfBirthPopup.qml
+        src/setup/DateDigitField.qml
     SOURCES
-        src/background/notification.h src/background/notification.cpp
-        # src/background/wifimanager.h src/background/wifimanager.cpp
+        src/background/notification/notification.h src/background/notification/notification.cpp
         src/background/audioplayer.h src/background/audioplayer.cpp
         src/background/ble/characteristicinfo.h src/background/ble/characteristicinfo.cpp
         src/background/ble/device.h src/background/ble/device.cpp
         src/background/ble/deviceinfo.h src/background/ble/deviceinfo.cpp
         src/background/ble/serviceinfo.h src/background/ble/serviceinfo.cpp
         src/request/networkmanager.h src/request/networkmanager.cpp
-        # src/settings/item/settingsapp/DeviceUtilities/QtButtonImageProvider/qtbuttonimageprovider.h src/settings/item/settingsapp/DeviceUtilities/QtButtonImageProvider/qtbuttonimageprovider.cpp
+        src/background/buffer/buffer.h src/background/buffer/buffer.cpp
+        src/background/buffer/database.h src/background/buffer/database.cpp
+        src/background/buffer/datapacket.h
+        src/background/buffer/senderworker.h
+        SOURCES src/background/ble/connectionworker.h src/background/ble/connectionworker.cpp
+
 )
 
 target_link_libraries(appreceiver
@@ -108,10 +115,10 @@ target_link_libraries(appreceiver
         Qt6::Quick
         Qt6::Multimedia
         Qt6::Network
-        # Qt6::NetworkSettings
         Qt6::QuickControls2
         # QtOtaUpdate
         Qt6::Bluetooth
+        Qt6::Sql
 )
 
 include(GNUInstallDirs)
