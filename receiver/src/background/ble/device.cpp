@@ -61,6 +61,7 @@ Device::Device(Buffer *buffer, QObject *parent)
 
 Device::~Device()
 {
+    disconnectFromDevice();
     qDeleteAll(devices);
     qDeleteAll(m_services);
     qDeleteAll(m_characteristics);
@@ -295,6 +296,8 @@ void Device::errorReceived(QLowEnergyController::Error /*error*/)
 {
     qWarning() << "Error: " << controller->errorString();
     setUpdate(u"Back\n(%1)"_s.arg(controller->errorString()));
+    disconnectFromDevice();
+    deviceDisconnected();
 }
 
 void Device::setUpdate(const QString &message)

@@ -8,7 +8,8 @@ Column {
 
     Text {
         text: "Select Language"
-        font.pixelSize: 24
+        font.pixelSize: 32
+        font.bold: true
         anchors.horizontalCenter: parent.horizontalCenter
     }
 
@@ -27,6 +28,7 @@ Column {
 
         RadioButton {
             text: modelData.label
+            font.pixelSize: 24
             checked: appStorage.selectedLanguage === modelData.name
             anchors.horizontalCenter: parent.horizontalCenter
 

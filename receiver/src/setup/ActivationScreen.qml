@@ -19,12 +19,12 @@ Item {
         onResponseDataChanged: {
             // Add device to selected list
             console.log(JSON.stringify(network.responseData))
-            var targetDevice = getDeviceByName(JSON.parse(network.responseData).wearableName)
+            var targetDevice = JSON.parse(network.responseData).wearableName
             // Add with different array reference to store properly
-            var updatedDevices = appStorage.selectedDevices.slice()
+            var updatedDevices = appStorage.approvedDevices.slice()
             updatedDevices.push(targetDevice)
-            appStorage.selectedDevices = updatedDevices
-            console.log("Selected Devices:", appStorage.selectedDevices.length)
+            appStorage.approvedDevices = updatedDevices
+            console.log("Selected Devices:", appStorage.approvedDevices.length)
             dateOfBirthPopup.visible = false
             activation()
         }
@@ -224,22 +224,22 @@ Item {
         codeField1.forceActiveFocus()
     }
 
-    function getDeviceByName(deviceName) {
-        try {
-            // Parse the JSON string into a JavaScript array
-            console.log(appStorage.availableDevices)
-            var devices = appStorage.availableDevices.wearables;
-            console.log("Looking for:", deviceName)
-            // Loop through each device to find a name match
-            for (var i = 0; i < devices.length; i++) {
-                console.log(i, devices[i].name)
-                if (devices[i].name === deviceName) {
-                    return devices[i]; // Return the matched device object
-                }
-            }
-        } catch (e) {
-            console.error("Error parsing or searching devices:", e);
-        }
-        return null; // Return null if no match or error
-    }
+    // function getDeviceByName(deviceName) {
+    //     try {
+    //         // Parse the JSON string into a JavaScript array
+    //         console.log(appStorage.availableDevices)
+    //         var devices = appStorage.availableDevices.wearables;
+    //         console.log("Looking for:", deviceName)
+    //         // Loop through each device to find a name match
+    //         for (var i = 0; i < devices.length; i++) {
+    //             console.log(i, devices[i].name)
+    //             if (devices[i].name === deviceName) {
+    //                 return devices[i]; // Return the matched device object
+    //             }
+    //         }
+    //     } catch (e) {
+    //         console.error("Error parsing or searching devices:", e);
+    //     }
+    //     return null; // Return null if no match or error
+    // }
 }

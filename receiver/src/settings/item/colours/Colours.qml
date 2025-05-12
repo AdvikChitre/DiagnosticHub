@@ -7,7 +7,8 @@ Column {
 
     Text {
         text: "Select Colour Scheme"
-        font.pixelSize: 24
+        font.pixelSize: 32
+        font.bold: true
         anchors.horizontalCenter: parent.horizontalCenter
     }
 

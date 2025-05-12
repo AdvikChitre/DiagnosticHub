@@ -75,7 +75,10 @@ Item {
         // Left button (Cancel/Back)
         Button {
             id: leftButton
+            width: 175
+            height: 88
             text: (currentStep === 1 || currentStep === totalSteps) ? "Cancel" : "Back"
+            font.pixelSize: 24
             onClicked: {
                 if (currentStep === 1 || currentStep === totalSteps) {
                     settingsScreen.settingsCancelled()
@@ -93,7 +96,10 @@ Item {
 
         // Right button (Next/Finish)
         Button {
+            width: 175
+            height: 88
             text: currentStep === totalSteps ? "Finish" : "Next"
+            font.pixelSize: 24
             onClicked: {
                 if (currentStep === totalSteps) {
                     settingsScreen.settingsUpdated()
@@ -110,6 +116,8 @@ Item {
             contentItem: Text {
                 text: parent.text
                 color: "white"
+                font.pixelSize: 24
+                verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
             }
         }

@@ -11,7 +11,7 @@
 #include "buffer.h"
 #include "../../request/networkmanager.h"
 
-static const int BATCH_SIZE = 10; // number of packets per batch
+static const int BATCH_SIZE = 100; // number of packets per batch
 
 class SenderWorker : public QObject {
     Q_OBJECT
@@ -32,7 +32,7 @@ public:
 public slots:
     void start() {
         QTimer *timer = new QTimer(this);
-        timer->setInterval(200); // poll every X ms
+        timer->setInterval(1000); // poll every X ms
         connect(timer, &QTimer::timeout, this, &SenderWorker::trySendBatch);
         timer->start();
     }

@@ -3,10 +3,10 @@
 #include <QQmlContext>
 #include <QThread>
 #include "./request/networkmanager.h"
-// #include "src/background/ble/characteristicinfo.h"
-// #include "src/background/ble/device.h"
-// #include "src/background/ble/deviceinfo.h"
-// #include "src/background/ble/serviceinfo.h"
+#include "src/background/ble/characteristicinfo.h"
+#include "src/background/ble/device.h"
+#include "src/background/ble/deviceinfo.h"
+#include "src/background/ble/serviceinfo.h"
 #include "src/background/buffer/senderworker.h"
 #include "src/background/ble/connectionworker.h"
 
@@ -23,14 +23,14 @@ int main(int argc, char *argv[])
     // Create shared buffer
     Buffer *sharedBuffer = new Buffer;
 
-    // // Create Device & buffer early
-    // Device *deviceInstance = new Device(sharedBuffer);
+    // Create Device & buffer early
+    Device *deviceInstance = new Device(sharedBuffer);
 
-    // // QML type registrations...
-    // qmlRegisterType<CharacteristicInfo>("receiver", 1, 0, "CharacteristicInfo");
-    // qmlRegisterSingletonInstance<Device>("receiver", 1, 0, "Device", deviceInstance);
-    // qmlRegisterType<DeviceInfo>("receiver", 1, 0, "DeviceInfo");
-    // qmlRegisterType<ServiceInfo>("receiver", 1, 0, "ServiceInfo");
+    // QML type registrations
+    qmlRegisterType<CharacteristicInfo>("receiver", 1, 0, "CharacteristicInfo");
+    qmlRegisterSingletonInstance<Device>("receiver", 1, 0, "Device", deviceInstance);
+    qmlRegisterType<DeviceInfo>("receiver", 1, 0, "DeviceInfo");
+    qmlRegisterType<ServiceInfo>("receiver", 1, 0, "ServiceInfo");
     qmlRegisterType<NetworkManager>("Network", 1, 0, "NetworkManager");
 
     // Set up connection worker
@@ -80,17 +80,17 @@ int main(int argc, char *argv[])
         connectionThread->wait();
     });
 
-    senderThread->start();
-    senderThread->setPriority(QThread::LowPriority);
-    connectionThread->start();
-    connectionThread->setPriority(QThread::NormalPriority);
-
     // QML engine
     QQmlApplicationEngine engine;
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreationFailed,
                      &app, [](){ QCoreApplication::exit(-1); },
                      Qt::QueuedConnection);
     engine.loadFromModule("receiver", "Main");
+
+    senderThread->start();
+    senderThread->setPriority(QThread::LowPriority);
+    connectionThread->start();
+    connectionThread->setPriority(QThread::NormalPriority);
 
     return app.exec();
 }

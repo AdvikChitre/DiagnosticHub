@@ -64,14 +64,14 @@ qt_add_qml_module(appreceiver
     QML_FILES
         src/Main.qml
         src/audio/SoundTest.qml
-        src/background/ble/Characteristics.qml
-        src/background/ble/Devices.qml
-        src/background/ble/Dialog.qml
-        src/background/ble/Header.qml
-        src/background/ble/Label.qml
-        src/background/ble/BLETest.qml
-        src/background/ble/Menu.qml
-        src/background/ble/Services.qml
+        # src/background/ble/Characteristics.qml
+        # src/background/ble/Devices.qml
+        # src/background/ble/Dialog.qml
+        # src/background/ble/Header.qml
+        # src/background/ble/Label.qml
+        # src/background/ble/BLETest.qml
+        # src/background/ble/Menu.qml
+        # src/background/ble/Services.qml
         src/common/Constants.qml
         src/common/Keyboard.qml
         src/common/AutoScroller.qml
@@ -93,6 +93,7 @@ qt_add_qml_module(appreceiver
         src/setup/ActivationScreen.qml
         src/setup/DateOfBirthPopup.qml
         src/setup/DateDigitField.qml
+        src/setup/ConnectScreen.qml
     SOURCES
         src/background/notification/notification.h src/background/notification/notification.cpp
         src/background/audioplayer.h src/background/audioplayer.cpp
@@ -106,6 +107,7 @@ qt_add_qml_module(appreceiver
         src/background/buffer/datapacket.h
         src/background/buffer/senderworker.h
         src/background/ble/connectionworker.h src/background/ble/connectionworker.cpp
+        src/background/hardware/power.h src/background/hardware/power.cpp
 )
 
 target_link_libraries(appreceiver

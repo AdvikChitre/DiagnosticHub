@@ -12,7 +12,7 @@ import "./settings"
 // import DeviceUtilities
 // import DeviceUtilities.SettingsUI
 import "./settings/item/wifi"
-import "./background/ble"
+// import "./background/ble"
 // import QtQml
 import Network
 // import QtOtaUpdate
@@ -40,7 +40,8 @@ ApplicationWindow {
         property bool onboardingCompleted: false
 
         // Current Session
-        property var selectedDevices: []
+        property var approvedDevices: [] // Approved by activation code
+        property var selectedDevices: [] // Selected MAC address
         property string selectedLanguage: "en"
         property string selectedTheme: "light"
         property string selectedColor1: Constants.defaultPrimaryColor
@@ -67,6 +68,8 @@ ApplicationWindow {
 
     // On start
     Component.onCompleted: {
+        // appStorage.selectedDevices = []
+        // appStorage.approvedDevices = []
         storageReady = true
         // Display debug state info
         console.log("Available Devices:", appStorage.availableDevices)
@@ -93,6 +96,26 @@ ApplicationWindow {
             // anchors.bottomMargin: parent.height - inputPanel.y
             onNext: {
                 stackLoader.item.push(activationScreen)
+            }
+        }
+    }
+
+    Component {
+        id: activationScreen
+        ActivationScreen {
+            onActivation: {
+                stackLoader.item.push(connectScreen)
+            }
+        }
+    }
+
+    Component {
+        id: connectScreen
+        ConnectScreen {
+            onDeviceFound: {
+                console.log("DEVICE FOUND")
+                // stackLoader.item.replace(homeScreen)
+                Qt.callLater(() => stackLoader.item.replace(homeScreen))
             }
         }
     }
@@ -130,19 +153,10 @@ ApplicationWindow {
         }
     }
 
-    Component {
-        id: bleTestScreen
-        BLETest { }
-    }
-
-    Component {
-        id: activationScreen
-        ActivationScreen {
-            onActivation: {
-                stackLoader.item.replace(homeScreen)
-            }
-        }
-    }
+    // Component {
+    //     id: bleTestScreen
+    //     BLETest { }
+    // }
 
     // Screen Stack System
     Component {

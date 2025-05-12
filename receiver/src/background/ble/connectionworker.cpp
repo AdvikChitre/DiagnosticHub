@@ -11,10 +11,10 @@ ConnectionWorker::ConnectionWorker(Buffer *buffer, QObject *parent)
     m_discoveryAgent->setLowEnergyDiscoveryTimeout(5000);
 
     m_updateTimer = new QTimer(this);
-    m_updateTimer->setInterval(5000);
+    m_updateTimer->setInterval(60000);
 
     m_reconnectTimer = new QTimer(this);
-    m_reconnectTimer->setInterval(10000);
+    m_reconnectTimer->setInterval(30000);
 
     connect(m_discoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
             this, &ConnectionWorker::handleDeviceDiscovered);
@@ -119,6 +119,9 @@ void ConnectionWorker::handleServiceDiscovered(const QString &serviceUuid)
 void ConnectionWorker::reconnectDevices()
 {
     qDebug() << "Scanning devices";
+    qDebug() << "Selected devces:" << m_targetDevices;
+    qDebug() << "Connected devces:" << m_connectedDevices;
+
     // Re-scan periodically to maintain connections
     if(!m_discoveryAgent->isActive()) {
         m_discoveryAgent->start(QBluetoothDeviceDiscoveryAgent::LowEnergyMethod);

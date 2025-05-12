@@ -20,7 +20,7 @@ Rectangle {
         text: root.exampleText
         color: textColor
         anchors.centerIn: parent
-        font.pixelSize: 16
+        font.pixelSize: 24
     }
 
     // Default size (can be overridden)
