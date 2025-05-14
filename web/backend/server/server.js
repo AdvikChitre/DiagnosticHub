@@ -374,6 +374,7 @@ app.post('/api/studies/activation', authenticate, async (req, res) => {
             return res.status(404).json({ error: 'Device not found' });
         }
         res.status(200).json({ message: 'Activation code updated successfully', activationCode });
+        console.log
     } catch (error) {
         console.error('Database error:', error);
         res.status(500).json({ error: 'Database error' });
@@ -416,34 +417,45 @@ app.get('/api/wearables/config', async (req, res) => {
 });
 
 // Confirm DoB
-app.post('/api/studies/confirm', authenticate, async (req, res) => {
-    const { DoB_, deviceID_ } = req.body;
+app.post('/api/studies/confirm', async (req, res) => {
+    const { DoB, activationCode } = req.body;
+    console.log('Received request to confirm DoB:', req.body);
     try {
         // Retrieve the study by deviceID (assumed as study ID)
         const [studies] = await pool.query(
-            'SELECT id, date_of_birth, status FROM studies WHERE id = ?',
-            [deviceID_]
+            'SELECT id, wearable, date_of_birth, status FROM studies WHERE activation_code = ?',
+            [activationCode]
         );
+        console.log('Studies found:', studies);
         if (studies.length === 0) {
             return res.status(404).json({ error: 'Study not found' });
         }
 
         const study = studies[0];
         // Check if the provided DoB matches the stored
-        if (study.date_of_birth !== DoB_) {
+        const date = new Date(study.date_of_birth);
+        const day = ('0' + date.getUTCDate()).slice(-2);
+        const month = ('0' + (date.getUTCMonth() + 1)).slice(-2);
+        const year = date.getUTCFullYear();
+        const formattedStudyDoB = `${day}/${month}/${year}`;
+        if (DoB !== formattedStudyDoB) {
             return res.status(400).json({ error: 'Date of birth does not match' });
         }
         // Only update if current status is 'planned'
         if (study.status !== 'planned') {
             return res.status(400).json({ error: 'Study is not in planned status' });
         }
-
         // Update status to 'active'
         const [updateResult] = await pool.query(
             'UPDATE studies SET status = ? WHERE id = ?',
-            ['active', deviceID_]
+            ['active', study.id]
         );
-        res.status(200).json({ message: 'Study status updated to active' });
+        // Get device name for connection process
+        const [wearableRows] = await pool.query(
+            'SELECT name FROM wearables WHERE id = ?',
+            [study.wearable]
+        );
+        res.status(200).json({ wearableName: wearableRows[0].name, studyID: study.id });
     } catch (error) {
         console.error('Database error:', error);
         res.status(500).json({ error: 'Database error' });
@@ -465,6 +477,14 @@ app.get('/api/receiver/firmware', async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+// Test post request
+app.post('/api/test', async (req, res) => {
+    const { packets } = req.body;
+    console.log('Received test request:', packets);
+    res.status(200).json({ message: 'Test successful', data: packets });
+});
+
 
 // Get latest version
 
