@@ -8,6 +8,8 @@ import "./onboarding"
 import "./setup"
 import "./home"
 import "./settings"
+import "./video"
+import "./question"
 // import "./settings/item/settingsuiapp"
 // import DeviceUtilities
 // import DeviceUtilities.SettingsUI
@@ -18,15 +20,21 @@ import Network
 // import QtOtaUpdate
 // import "common/constants.qml"
 import receiver
+import QtQuick.VirtualKeyboard.Settings
 
-ApplicationWindow {
+// Remote Control
+import QtVncServer
+
+
+Window {
     id: mainWindow
     width: 1024
     height: 600
     visible: true
     title: qsTr("Hello World")
     // color: "#2adbde"
-    color: "#ef476f"
+    // color: "#ef476f"
+    color: appStorage.selectedBgColor || "#ef476f"
     property bool storageReady: false
 
     // Persistent settings
@@ -40,16 +48,19 @@ ApplicationWindow {
         property bool onboardingCompleted: false
 
         // Current Session
+        property var deviceSessions: ({})
         property var approvedDevices: [] // Approved by activation code
+        property string settingUpDevice: ""
         property var selectedDevices: [] // Selected MAC address
-        property string selectedLanguage: "en"
-        property string selectedTheme: "light"
-        property string selectedColor1: Constants.defaultPrimaryColor
-        property string selectedColor2: Constants.defaultSecondaryColor
-        property string selectedColor3: Constants.defaultBackgroundColor
-        property bool notifyAudio: true
-        property bool notifyHaptic: true
-        property bool notifyFlash: true
+        property var connectedDevices: []
+        property string selectedLanguage: Constants.defaultLanguage
+        property string selectedTheme: Constants.defaultTheme
+        property string selectedTextColor: Constants.defaultTextColor
+        property string selectedBgColor: Constants.defaultSecondaryColor
+        property string selectedBorderColor: Constants.defaultBackgroundColor
+        property bool notifyAudio: Constants.defaultNotifyAudio
+        property bool notifyHaptic: Constants.defaultNotifyHaptic
+        property bool notifyFlash: Constants.defaultNtifyFlash
     }
 
     // Manages HTTP requests
@@ -68,16 +79,17 @@ ApplicationWindow {
 
     // On start
     Component.onCompleted: {
-        // appStorage.selectedDevices = []
+        console.log("Keyboard locale:", VirtualKeyboardSettings.locale)
         // appStorage.approvedDevices = []
+        // appStorage.selectedDevices = []
         storageReady = true
         // Display debug state info
         console.log("Available Devices:", appStorage.availableDevices)
         console.log("Selected Devices:", appStorage.selectedDevices)
-        console.log("Request URL:", Constants.baseUrl+"api/wearables/config")
-        network.get(Constants.baseUrl + "api/wearables/config")
+        console.log("")
+        console.log("Request URL:", Constants.baseUrl+"/api/wearables/config")
+        network.get(Constants.baseUrl + "/api/wearables/config")
     }
-
 
     Component {
         id: onboardingScreen
@@ -95,7 +107,13 @@ ApplicationWindow {
             anchors.fill: parent
             // anchors.bottomMargin: parent.height - inputPanel.y
             onNext: {
-                stackLoader.item.push(activationScreen)
+                if (appStorage.selectedDevices.length > 0) {
+                    // settingsScreen.currentIndex += 1
+                    stackLoader.item.pop()
+                }
+                else {
+                    stackLoader.item.push(activationScreen)
+                }
             }
         }
     }
@@ -115,7 +133,37 @@ ApplicationWindow {
             onDeviceFound: {
                 console.log("DEVICE FOUND")
                 // stackLoader.item.replace(homeScreen)
-                Qt.callLater(() => stackLoader.item.replace(homeScreen))
+                console.log(stackLoader.item.depth())
+                if (stackLoader.item.depth() === 4) {
+                    Qt.callLater(() => stackLoader.item.push(videoScreen))
+                }
+                else {
+                    stackLoader.item.pop()
+                }
+            }
+        }
+    }
+
+    Component {
+        id: videoScreen
+        VideoScreen {
+            onNext: {
+                console.log("depth:", stackLoader.item.depth())
+                if (stackLoader.item.depth() === 5) {
+                    stackLoader.item.push(questionScreen)
+                }
+                else {
+                    stackLoader.item.pop()
+                }
+            }
+        }
+    }
+
+    Component {
+        id: questionScreen
+        QuestionScreen {
+            onSubmit: {
+                stackLoader.item.replace(homeScreen)
             }
         }
     }
@@ -144,7 +192,7 @@ ApplicationWindow {
         id: settingsScreen
         SettingsScreen {
             onSettingsUpdated: {
-                appSettings.sync()
+                appStorage.sync()
                 stackLoader.item.pop()
             }
             onSettingsCancelled: {
@@ -161,9 +209,22 @@ ApplicationWindow {
     // Screen Stack System
     Component {
         id: stackComponent
-        StackView {
-            initialItem: appStorage.selectedDevices.length === 0 ? onboardingScreen : homeScreen
+        VncItem {
+            id: vncItem
             anchors.fill: parent
+            vncPort: 5901
+
+            // forwarders:
+            function push(item)    { stackView.push(item) }
+            function pop()         { stackView.pop() }
+            function replace(item) { stackView.replace(item) }
+            function depth()       { return stackView.depth }
+
+            StackView {
+                id: stackView
+                initialItem: appStorage.selectedDevices.length === 0 ? onboardingScreen : homeScreen
+                anchors.fill: parent
+            }
         }
     }
 

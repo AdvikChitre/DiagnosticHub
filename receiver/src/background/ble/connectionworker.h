@@ -14,6 +14,8 @@ public:
     explicit ConnectionWorker(Buffer *buffer, QObject *parent = nullptr);
     virtual ~ConnectionWorker();
 
+private:
+    void updateConnectedDevices();
 public slots:
     void startMonitoring();
     void stopMonitoring();

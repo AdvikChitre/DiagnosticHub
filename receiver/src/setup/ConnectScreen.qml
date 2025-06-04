@@ -1,4 +1,3 @@
-pragma ComponentBehavior: Bound
 import QtCore
 import QtQuick
 import QtQuick.Controls
@@ -7,38 +6,83 @@ import receiver
 
 Rectangle {
     id: devicesPage
+    color: "transparent"
 
     property var approvedDevices: appStorage.approvedDevices
     signal deviceFound()
 
     width: parent.height
     height: parent.width
+    anchors {
+        horizontalCenter: parent.horizontalCenter
+        topMargin: 20
+    }
+
+    property var translations: {
+        "en_US": {
+            "connectingTitle": "Connecting...",
+            "turnOnDeviceHint": "Turn on your device",
+            "ensureDeviceOnHint": "Make sure the device is switched on"
+        },
+        "es_ES": {
+            "connectingTitle": "Conectando...",
+            "turnOnDeviceHint": "Encienda su dispositivo",
+            "ensureDeviceOnHint": "Asegúrese de que el dispositivo esté encendido"
+        },
+        "fr_FR": {
+            "connectingTitle": "Connexion...",
+            "turnOnDeviceHint": "Allumez votre appareil",
+            "ensureDeviceOnHint": "Assurez-vous que l'appareil est allumé"
+        },
+        "de_DE": {
+            "connectingTitle": "Verbinden...",
+            "turnOnDeviceHint": "Schalten Sie Ihr Gerät ein",
+            "ensureDeviceOnHint": "Stellen Sie sicher, dass das Gerät eingeschaltet ist"
+        }
+    }
 
     Component.onCompleted: {
-        // Start discovery when page loads
         if (permission.status === Qt.PermissionStatus.Granted) {
             Device.startDeviceDiscovery()
         }
     }
 
     ColumnLayout {
-        anchors.centerIn: parent
-        spacing: 20
+        anchors {
+            top: parent.top
+            topMargin: 60
+            horizontalCenter: parent.horizontalCenter
+        }
+        spacing: 30
 
         Label {
             text: "Connecting..."
-            font.pixelSize: 24
+            color: appStorage.selectedTextColor
+            font.pixelSize: 46
+            font.bold: true
+            topPadding: 60
             Layout.alignment: Qt.AlignHCenter
+            // leftPadding:
         }
 
         BusyIndicator {
             running: true
-            Layout.preferredWidth: 50
-            Layout.preferredHeight: 50
-            Layout.alignment: Qt.AlignHCenter
+            Layout.preferredWidth: 100
+            Layout.preferredHeight: 100
+            Layout.alignment: Qt.AlignCenter
+        }
+
+        Label {
+            text: "Turn on your device"
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            font.pixelSize: 24
+            color: "gray"
+            bottomPadding: 20
         }
     }
 
+    // Instruction text remains at bottom
     Label {
         anchors {
             bottom: parent.bottom
@@ -50,32 +94,24 @@ Rectangle {
         color: "gray"
     }
 
+    // Rest of the original logic remains unchanged
     Connections {
         target: Device
         function onDevicesUpdated() {
-            console.log("Approved devices:", JSON.stringify(appStorage.approvedDevices))
-            console.log("Selected devices:", appStorage.selectedDevices)
-            // Check all discovered devices against approved list
             for (var i = 0; i < Device.devicesList.length; i++) {
                 var device = Device.devicesList[i]
                 var index = approvedDevices.indexOf(device.deviceName)
-
                 if (index > -1) {
-                    // Add MAC to selected devices
                     var selected = appStorage.selectedDevices
                     if (!selected.includes(device.deviceAddress)) {
                         selected.slice()
                         selected.push(device.deviceAddress)
-                        appStorage.selectedDevices = updatedSelectedDevices
+                        appStorage.selectedDevices = selected
                     }
-
-                    // Remove name from approved devices
+                    appStorage.settingUpDevice = device.deviceName
                     approvedDevices.splice(index, 1)
-                    var updatedApprovedDevices = approvedDevices.slice()
-                    appStorage.approvedDevices = updatedApprovedDevices
-
+                    appStorage.approvedDevices = approvedDevices.slice()
                     deviceFound()
-                    console.log("AFTER DEVICE FOUND")
                     break
                 }
             }
@@ -96,7 +132,6 @@ Rectangle {
         target: Device
         function onStateChanged() {
             if (!Device.state && approvedDevices.length > 0) {
-                // If discovery stopped but still have approved devices, retry
                 Qt.callLater(Device.startDeviceDiscovery)
             }
         }

@@ -76,9 +76,9 @@ void ConnectionWorker::handleDeviceDiscovered(const QBluetoothDeviceInfo &info)
                 this, &ConnectionWorker::handleDeviceDisconnected,
                 Qt::QueuedConnection);
 
-
         device->scanServices(address);
         m_connectedDevices.insert(address, device);
+        updateConnectedDevices();
     }
 }
 
@@ -88,6 +88,7 @@ void ConnectionWorker::handleDeviceDisconnected()
     if (!device) return;
 
     m_connectedDevices.remove(device->getCurrentAddress());
+    updateConnectedDevices();
 }
 
 void ConnectionWorker::updateDeviceList()
@@ -126,4 +127,14 @@ void ConnectionWorker::reconnectDevices()
     if(!m_discoveryAgent->isActive()) {
         m_discoveryAgent->start(QBluetoothDeviceDiscoveryAgent::LowEnergyMethod);
     }
+}
+
+// Updates appStorage connected devices
+void ConnectionWorker::updateConnectedDevices() {
+    QSettings settings;
+    settings.beginGroup("AppConfig");
+    qDebug() << "KEYS:" << m_connectedDevices.keys();
+    settings.setValue("connectedDevices", m_connectedDevices.keys());
+    qDebug() << "KEYS2:" << settings.value("connectedDevices");
+    settings.endGroup();
 }

@@ -26,6 +26,7 @@ find_package(
         QuickControls2
         Bluetooth
         Sql
+        VncServer
 )
 
 qt_standard_project_setup(REQUIRES 6.5)
@@ -51,16 +52,30 @@ qt_add_qml_module(appreceiver
     RESOURCES
         src/icon/back.svg
         src/icon/next.svg
-        src/icon/select.svg
         src/icon/settings.svg
         src/icon/speak.svg
         src/icon/wearable-connection.svg
         src/icon/wearable-no-connection.svg
         src/icon/wifi-connection.svg
         src/icon/wifi-no-connection.svg
+        src/icon/finger.svg
+        src/icon/wearable.svg
+        src/icon/receiver.svg
         src/devices/img/Acupebble.png
         src/audio/430811__mmoerth__strange-electronic-toilet-speech-wav.wav
         src/background/ble/assets/busy_dark.png
+        src/icon/flag/en_US.svg
+        src/icon/flag/es_ES.svg
+        src/icon/flag/fr_FR.svg
+        src/icon/flag/de_DE.svg
+        src/icon/settings/step-1.svg
+        src/icon/settings/step-2.svg
+        src/icon/settings/step-3.svg
+        src/icon/settings/step-4.svg
+        src/icon/settings/step-5.svg
+        src/icon/settings/step-6.svg
+        src/icon/settings/step-7.svg
+        src/video/example.mp4
     QML_FILES
         src/Main.qml
         src/audio/SoundTest.qml
@@ -108,6 +123,9 @@ qt_add_qml_module(appreceiver
         src/background/buffer/senderworker.h
         src/background/ble/connectionworker.h src/background/ble/connectionworker.cpp
         src/background/hardware/power.h src/background/hardware/power.cpp
+        QML_FILES src/video/VideoScreen.qml
+        QML_FILES src/question/QuestionScreen.qml
+        QML_FILES src/common/TapHint.qml
 )
 
 target_link_libraries(appreceiver
@@ -120,6 +138,7 @@ target_link_libraries(appreceiver
         # QtOtaUpdate
         Qt6::Bluetooth
         Qt6::Sql
+        Qt6::VncServer
 )
 
 include(GNUInstallDirs)

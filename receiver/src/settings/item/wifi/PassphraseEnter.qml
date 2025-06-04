@@ -2,103 +2,138 @@
 // SPDX-License-Identifier: LicenseRef-Qt-Commercial OR GPL-3.0-only
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 import QtDeviceUtilities.NetworkSettings
 
 Rectangle {
     id: passphrasePopup
-    width: parent.width
-    height: parent.height
-    color: passphrasePopup.backgroundColor
+    anchors.fill: parent
+    color: "#09102b"
+    visible: false
     opacity: 0.9
+
     property string extraInfo: ""
     property bool showSsid: false
-
-    property int margin: (width / 3 * 2) * 0.05
-    property int spacing: margin * 0.5
-
-    property string appFont: "TitilliumWeb"
-    property color backgroundColor: "#09102b"
     property color borderColor: "#9d9faa"
     property color buttonGreenColor: "#41cd52"
     property color buttonGrayColor: "#9d9faa"
     property color buttonActiveColor: "#216729"
-    property color scrollBarColor: "#41cd52"
-    // property real spacing: 0.5
-    property real titleFontSize: 0.04
-    property real subTitleFontSize: 0.035
-    property real valueFontSize: 0.025
-    property real fieldHeight: 0.07
-    property real fieldTextHeight: 0.05
-    property real buttonHeight: 0.05
+    property string appFont: "TitilliumWeb"
+
+    function showPopup() {
+        extraInfo = ""
+        passField.text = ""
+        ssidField.text = ""
+        visible = true
+        if(showSsid) ssidField.forceActiveFocus()
+        else passField.forceActiveFocus()
+    }
 
     Rectangle {
-        id: frame
-        color: passphrasePopup.backgroundColor
-        border.color: passphrasePopup.borderColor
-        border.width: 3
+        id: popupFrame
         anchors.centerIn: parent
-        width: passphraseColumn.width * 1.1
-        height: passphraseColumn.height * 1.1
+        width: popupColumn.width + 40
+        height: popupColumn.height
+        color: "#09102b"
+        border.color: borderColor
+        border.width: 2
+        radius: 5
+
+        transform: Translate {
+            y: keyboard.active ? -150 : 0
+            Behavior on y {
+                NumberAnimation { duration: 200 }
+            }
+        }
 
         Column {
-            id: passphraseColumn
+            id: popupColumn
             anchors.centerIn: parent
-            spacing: spacing
+            spacing: 20
+            padding: 20
+
+            Text {
+                text: showSsid ? "Connect to Network" : "Enter Passphrase"
+                color: "white"
+                font.bold: true
+                font.pixelSize: 20
+                Layout.alignment: Qt.AlignHCenter
+                font.family: appFont
+            }
 
             Text {
                 visible: showSsid
-                font.pixelSize: passphrasePopup.height * passphrasePopup.subTitleFontSize
-                font.family: passphrasePopup.appFont
+                text: "Enter SSID"
+                font.pixelSize: 18
                 color: "white"
-                text: qsTr("Enter SSID")
+                font.family: appFont
+                Layout.alignment: Qt.AlignHCenter
             }
 
             TextField {
                 id: ssidField
                 visible: showSsid
-                width: passphrasePopup.width * 0.4
-                height: passphrasePopup.height * 0.075
+                width: 200
+                height: 50
                 color: "white"
-                background: Rectangle{
+                font.pixelSize: 18
+                font.family: appFont
+                background: Rectangle {
                     color: "transparent"
-                    border.color: ssidField.focus ? passphrasePopup.buttonGreenColor : passphrasePopup.buttonGrayColor
-                    border.width: ssidField.focus ? width * 0.01 : 2
+                    border.color: ssidField.activeFocus ? buttonGreenColor : buttonGrayColor
+                    border.width: 2
+                    radius: 4
                 }
             }
 
             Text {
-                font.pixelSize: passphrasePopup.height * passphrasePopup.subTitleFontSize
-                font.family: passphrasePopup.appFont
+                text: "Enter Passphrase"
+                font.pixelSize: 18
                 color: "white"
-                text: qsTr("Enter Passphrase")
-            }
-
-            Text {
-                font.pixelSize: passphrasePopup.height * passphrasePopup.valueFontSize
-                font.family: passphrasePopup.appFont
-                color: "red"
-                text: extraInfo
-                visible: (extraInfo !== "")
+                font.family: appFont
+                Layout.alignment: Qt.AlignHCenter
+                visible: !showSsid
             }
 
             TextField {
                 id: passField
-                width: passphrasePopup.width * 0.4
-                height: passphrasePopup.height * 0.075
+                width: 200
+                height: 50
                 color: "white"
                 echoMode: TextInput.Password
-                background: Rectangle{
+                font.pixelSize: 18
+                font.family: appFont
+                background: Rectangle {
                     color: "transparent"
-                    border.color: passField.focus ? passphrasePopup.buttonGreenColor : passphrasePopup.buttonGrayColor
-                    border.width: passField.focus ? width * 0.01 : 2
+                    border.color: passField.activeFocus ? buttonGreenColor : buttonGrayColor
+                    border.width: 2
+                    radius: 4
                 }
             }
 
+            Text {
+                text: extraInfo
+                color: "red"
+                visible: extraInfo !== ""
+                font.pixelSize: 18
+                font.family: appFont
+                Layout.alignment: Qt.AlignHCenter
+            }
+
             Row {
-                spacing: parent.width * 0.025
+                spacing: 20
+
                 Button {
                     id: setButton
-                    text: qsTr("SET")
+                    text: "SET"
+                    width: 100
+                    height: 40
+
+                    background: Rectangle {
+                        color: parent.down ? buttonActiveColor : buttonGreenColor
+                        radius: 5
+                    }
+
                     onClicked: {
                         if (showSsid) {
                             NetworkSettingsManager.connectBySsid(ssidField.text, passField.text)
@@ -106,20 +141,24 @@ Rectangle {
                         } else {
                             NetworkSettingsManager.userAgent.setPassphrase(passField.text)
                         }
-                        passphrasePopup.visible = false;
+                        passphrasePopup.visible = false
                     }
                 }
+
                 Button {
-                    id: cancelButton
-                    text: qsTr("CANCEL")
-                    // borderColor: "transparent"
-                    // fillColor: passphrasePopup.buttonGrayColor
+                    text: "CANCEL"
+                    width: 100
+                    height: 40
+
+                    background: Rectangle {
+                        color: parent.down ? "#666666" : buttonGrayColor
+                        radius: 5
+                    }
+
                     onClicked: {
-                        if (!showSsid) {
-                            NetworkSettingsManager.userAgent.cancelInput()
-                        }
+                        if (!showSsid) NetworkSettingsManager.userAgent.cancelInput()
                         showSsid = false
-                        passphrasePopup.visible = false;
+                        passphrasePopup.visible = false
                     }
                 }
             }

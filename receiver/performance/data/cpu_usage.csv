@@ -1,0 +1,733 @@
+timestamp,CPU,%usr,%nice,%sys,%iowait,%irq,%soft,%steal,%guest,%gnice,%idle
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:05 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:05 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:06 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:06 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:07 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:07 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:08 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:08 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:09 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:09 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:10 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:10 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:11 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:11 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:12 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:12 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:13 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:13 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:14 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:14 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:15 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:15 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:16 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:16 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:17 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:17 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:18 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:18 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:19 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:19 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:20 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:20 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:21 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:21 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:22 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:22 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:23 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:23 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:24 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:24 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:25 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:25 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:26 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:26 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:27 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:27 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:28 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:28 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:29 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:29 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:30 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:30 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:31 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:31 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:32 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:32 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:33 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:33 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:34 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:34 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:35 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:35 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:36 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:36 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:37 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:37 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:38 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:38 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:40 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:40 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:41 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:41 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:42 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:42 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:43 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:43 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:44 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:44 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.05
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:45 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:45 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:46 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:46 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:47 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:47 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:48 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:48 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:49 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:49 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:50 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:50 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:51 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:51 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:52 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:52 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:53 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:53 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:54 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:54 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:55 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:55 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:56 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:56 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:57 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:57 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:58 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:58 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:18:59 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:18:59 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:00 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:00 AM  all    4.14    0.00    1.62    0.18    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:01 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:01 AM  all    4.14    0.00    1.62    0.19    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:02 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:02 AM  all    4.14    0.00    1.62    0.19    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:03 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:03 AM  all    4.14    0.00    1.62    0.19    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:04 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:04 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.04
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:05 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:05 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:07 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:07 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:08 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:08 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:09 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:09 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:10 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:10 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:11 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:11 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:12 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:12 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:13 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:13 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:14 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:14 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:15 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:15 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:16 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:16 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:17 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:17 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:18 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:18 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:19 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:19 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:20 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:20 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:21 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:21 AM  all    4.14    0.00    1.63    0.19    0.00    0.01    0.00    0.00    0.00   94.03
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:22 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:22 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:23 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:23 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:24 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:24 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:25 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:25 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:26 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:26 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:27 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:27 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:28 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:28 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:29 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:29 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:30 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:30 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:31 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:31 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:32 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:32 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:33 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:33 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:34 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:34 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:35 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:35 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:36 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:36 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:37 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:37 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:38 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:38 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:40 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:40 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:41 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:41 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:42 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:42 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:43 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:43 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:44 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:44 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:45 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:45 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:46 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:46 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:47 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:47 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:48 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:48 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:49 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:49 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:50 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:50 AM  all    4.14    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:51 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:51 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:52 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:52 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:53 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:53 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:54 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:54 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:55 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:55 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:56 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:56 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:57 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:57 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:58 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:58 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:19:59 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:19:59 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:00 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:00 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:01 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:01 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:02 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:02 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:03 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:03 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:04 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:04 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:05 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:05 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:06 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:06 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:07 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:07 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:08 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:08 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:09 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:09 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:10 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:10 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:11 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:11 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:12 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:12 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:13 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:13 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:14 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:14 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.02
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:15 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:15 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.01
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:16 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:16 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.01
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:17 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:17 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.01
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:18 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:18 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.01
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:19 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:19 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.01
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:21 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:21 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.01
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:22 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:22 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.01
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:23 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:23 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.01
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:24 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:24 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.01
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:25 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:25 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.00
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:26 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:26 AM  all    4.15    0.00    1.63    0.20    0.00    0.01    0.00    0.00    0.00   94.00
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:27 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:27 AM  all    4.15    0.00    1.63    0.21    0.00    0.01    0.00    0.00    0.00   94.00
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:28 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:28 AM  all    4.15    0.00    1.63    0.21    0.00    0.01    0.00    0.00    0.00   94.00
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:29 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:29 AM  all    4.15    0.00    1.63    0.21    0.00    0.01    0.00    0.00    0.00   93.99
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:30 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:30 AM  all    4.15    0.00    1.63    0.22    0.00    0.01    0.00    0.00    0.00   93.99
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:31 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:31 AM  all    4.15    0.00    1.63    0.22    0.00    0.01    0.00    0.00    0.00   93.99
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:32 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:32 AM  all    4.15    0.00    1.63    0.22    0.00    0.01    0.00    0.00    0.00   93.98
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:33 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:33 AM  all    4.15    0.00    1.63    0.22    0.00    0.01    0.00    0.00    0.00   93.98
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:34 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:34 AM  all    4.15    0.00    1.63    0.23    0.00    0.01    0.00    0.00    0.00   93.98
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:35 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:35 AM  all    4.15    0.00    1.64    0.23    0.00    0.01    0.00    0.00    0.00   93.97
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:36 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:36 AM  all    4.15    0.00    1.64    0.24    0.00    0.01    0.00    0.00    0.00   93.97
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:37 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:37 AM  all    4.15    0.00    1.64    0.24    0.00    0.01    0.00    0.00    0.00   93.96
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:38 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:38 AM  all    4.15    0.00    1.64    0.25    0.00    0.01    0.00    0.00    0.00   93.95
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:39 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:39 AM  all    4.15    0.00    1.64    0.25    0.00    0.01    0.00    0.00    0.00   93.95
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:40 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:40 AM  all    4.15    0.00    1.64    0.26    0.00    0.01    0.00    0.00    0.00   93.95
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:41 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:41 AM  all    4.15    0.00    1.64    0.26    0.00    0.01    0.00    0.00    0.00   93.94
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:42 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:42 AM  all    4.15    0.00    1.64    0.27    0.00    0.01    0.00    0.00    0.00   93.94
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:43 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:43 AM  all    4.15    0.00    1.64    0.27    0.00    0.01    0.00    0.00    0.00   93.93
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:44 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:44 AM  all    4.15    0.00    1.64    0.27    0.00    0.01    0.00    0.00    0.00   93.93
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:45 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:45 AM  all    4.15    0.00    1.64    0.28    0.00    0.01    0.00    0.00    0.00   93.92
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:46 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:46 AM  all    4.15    0.00    1.64    0.28    0.00    0.01    0.00    0.00    0.00   93.92
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:47 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:47 AM  all    4.15    0.00    1.64    0.29    0.00    0.01    0.00    0.00    0.00   93.92
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:48 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:48 AM  all    4.15    0.00    1.64    0.29    0.00    0.01    0.00    0.00    0.00   93.91
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:49 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:49 AM  all    4.15    0.00    1.64    0.30    0.00    0.01    0.00    0.00    0.00   93.91
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:50 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:50 AM  all    4.15    0.00    1.64    0.30    0.00    0.01    0.00    0.00    0.00   93.90
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:51 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:51 AM  all    4.15    0.00    1.64    0.30    0.00    0.01    0.00    0.00    0.00   93.90
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:52 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:52 AM  all    4.15    0.00    1.64    0.30    0.00    0.01    0.00    0.00    0.00   93.90
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:53 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:53 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.89
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:54 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:54 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.89
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:55 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:55 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.89
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:56 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:56 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:57 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:57 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:20:59 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:20:59 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:00 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:00 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:01 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:01 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:02 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:02 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.89
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:03 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:03 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:04 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:04 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.89
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:05 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:05 AM  all    4.15    0.00    1.64    0.31    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:06 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:06 AM  all    4.15    0.00    1.64    0.32    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:07 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:07 AM  all    4.15    0.00    1.64    0.32    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:08 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:08 AM  all    4.15    0.00    1.64    0.32    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:09 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:09 AM  all    4.15    0.00    1.64    0.32    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:10 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:10 AM  all    4.15    0.00    1.64    0.32    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:11 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:11 AM  all    4.15    0.00    1.64    0.32    0.00    0.01    0.00    0.00    0.00   93.88
+Linux 6.6.22-v8 (b2qt-raspberrypi-armv8) 	06/04/2025 	_aarch64_	(4 CPU)
+
+12:21:12 AM  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+12:21:12 AM  all    4.15    0.00    1.64    0.32    0.00    0.01    0.00    0.00    0.00   93.88

@@ -21,6 +21,7 @@ Item {
             mediaPlayer.stop()
             mediaPlayer.play()
             console.log('Playing audio')
+            console.log("CONNECTED:", appStorage.connectedDevices)
         }
     }
 }
