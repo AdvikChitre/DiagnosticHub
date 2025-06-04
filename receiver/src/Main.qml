@@ -52,7 +52,7 @@ Window {
         property var approvedDevices: [] // Approved by activation code
         property string settingUpDevice: ""
         property var selectedDevices: [] // Selected MAC address
-        property var connectedDevices: []
+        property var connectedDevices: mainThreadBridge.qmlConnectedDevices
         property string selectedLanguage: Constants.defaultLanguage
         property string selectedTheme: Constants.defaultTheme
         property string selectedTextColor: Constants.defaultTextColor

@@ -115,7 +115,7 @@ Item {
             ColorOverlay {
                 anchors.fill: tickIconSource
                 source: tickIconSource
-                color: typeof appStorage !== 'undefined' ? appStorage.selectedBorderColor : "green" // Use accent color
+                color: appStorage.selectedBorderColor
                 visible: homeScreenRoot.allDevicesConnected
             }
 
@@ -130,17 +130,16 @@ Item {
                 anchors.fill: disconnectedIconSource
                 source: disconnectedIconSource
                 color: "#EE2400"
-                // Example: appStorage.warningColor or a specific shade of selectedTextColor
                 visible: !homeScreenRoot.allDevicesConnected
             }
         }
 
         Text {
-            text: homeScreenRoot.allDevicesConnected ? root.getText("allConnected") : root.getText("wearableDisconnected")
+            text: homeScreenRoot.allDevicesConnected ? homeScreenRoot.getText("allConnected") : homeScreenRoot.getText("wearableDisconnected")
             Layout.alignment: Qt.AlignHCenter
             font.pixelSize: 28
             font.bold: true
-            color: typeof appStorage !== 'undefined' ? appStorage.selectedTextColor : "black"
+            color: appStorage.selectedTextColor
             visible: homeScreenRoot.hasSelectedDevices // Only show text if devices are selected
         }
     }
@@ -164,9 +163,6 @@ Item {
         anchors.topMargin: 5
         anchors.right: settingsButtonInstance.right
         anchors.rightMargin: (settingsButtonInstance.width - width) / 2 // Center below button
-
-        text: root.getText("settingsHint")
-        // Assuming TapHint has a property to set its text color, or themes internally
-        // textColor: appStorage.selectedTextColor // Example if TapHint has such a property
+        text: homeScreenRoot.getText("settingsHint")
     }
 }

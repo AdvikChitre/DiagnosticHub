@@ -61,6 +61,7 @@ qt_add_qml_module(appreceiver
         src/icon/finger.svg
         src/icon/wearable.svg
         src/icon/receiver.svg
+        src/icon/tick.svg
         src/devices/img/Acupebble.png
         src/audio/430811__mmoerth__strange-electronic-toilet-speech-wav.wav
         src/background/ble/assets/busy_dark.png

@@ -16,6 +16,8 @@ public:
 
 private:
     void updateConnectedDevices();
+signals:
+    void connectedDevicesActualListChanged(const QStringList &connectedDeviceAddresses);
 public slots:
     void startMonitoring();
     void stopMonitoring();

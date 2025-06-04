@@ -11,10 +11,10 @@ ConnectionWorker::ConnectionWorker(Buffer *buffer, QObject *parent)
     m_discoveryAgent->setLowEnergyDiscoveryTimeout(5000);
 
     m_updateTimer = new QTimer(this);
-    m_updateTimer->setInterval(60000);
+    m_updateTimer->setInterval(1000);
 
     m_reconnectTimer = new QTimer(this);
-    m_reconnectTimer->setInterval(30000);
+    m_reconnectTimer->setInterval(5000);
 
     connect(m_discoveryAgent, &QBluetoothDeviceDiscoveryAgent::deviceDiscovered,
             this, &ConnectionWorker::handleDeviceDiscovered);
@@ -133,8 +133,10 @@ void ConnectionWorker::reconnectDevices()
 void ConnectionWorker::updateConnectedDevices() {
     QSettings settings;
     settings.beginGroup("AppConfig");
-    qDebug() << "KEYS:" << m_connectedDevices.keys();
+    QStringList currentKeys = m_connectedDevices.keys();
+    qDebug() << "KEYS:" << currentKeys;
     settings.setValue("connectedDevices", m_connectedDevices.keys());
     qDebug() << "KEYS2:" << settings.value("connectedDevices");
     settings.endGroup();
+    emit connectedDevicesActualListChanged(currentKeys);
 }
