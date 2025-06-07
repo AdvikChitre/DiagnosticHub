@@ -9,7 +9,6 @@ Item {
     id: homeScreenRoot
     signal settings()
 
-    // --- Translation Setup ---
     property var translations: {
         "en_US": { "settingsHint": "Tap to Customise", "allConnected": "All Systems Go!", "wearableDisconnected": "Wearable Disconnected" },
         "es_ES": { "settingsHint": "Toca para personalizar", "allConnected": "¡Todo en Orden!", "wearableDisconnected": "Dispositivo Desconectado" },
@@ -29,17 +28,14 @@ Item {
         return key;
     }
 
-    // --- Connectivity State ---
-    property bool _internalAllDevicesConnected: true // Internal tracking
+    property bool _internalAllDevicesConnected: true
     readonly property bool allDevicesConnected: _internalAllDevicesConnected
     readonly property bool hasSelectedDevices: typeof appStorage !== 'undefined' && appStorage.selectedDevices && appStorage.selectedDevices.length > 0
 
     function checkDeviceConnectivity() {
         if (typeof appStorage === 'undefined' || !appStorage.selectedDevices || !appStorage.connectedDevices) {
-            // If appStorage or lists are not ready, assume connected or no devices to check
-            if (homeScreenRoot.hasSelectedDevices) { // Only consider disconnected if devices were selected
-                 // console.log("HomeScreen: appStorage not ready, assuming disconnected if devices were selected.");
-                 // _internalAllDevicesConnected = false; // Or some other default state
+            if (homeScreenRoot.hasSelectedDevices) {
+                 _internalAllDevicesConnected = false;
             } else {
                 _internalAllDevicesConnected = true;
             }
@@ -47,13 +43,13 @@ Item {
         }
 
         if (appStorage.selectedDevices.length === 0) {
-            _internalAllDevicesConnected = true; // No devices selected, so all "selected" are connected
+            _internalAllDevicesConnected = true;
             return;
         }
 
         var allFound = true;
         for (var i = 0; i < appStorage.selectedDevices.length; i++) {
-            var selectedDeviceAddress = appStorage.selectedDevices[i]; // Assuming these are unique identifiers like MAC addresses
+            var selectedDeviceAddress = appStorage.selectedDevices[i];
             var foundInConnected = false;
             for (var j = 0; j < appStorage.connectedDevices.length; j++) {
                 if (appStorage.connectedDevices[j] === selectedDeviceAddress) {
@@ -68,16 +64,18 @@ Item {
         }
 
         if (_internalAllDevicesConnected && !allFound) {
-            // Transitioned from all connected to some disconnected
             console.log("NOTIFICATION: A selected wearable has disconnected!");
-            // Replace with your actual notification call:
-            // if (typeof NotificationManager !== 'undefined') NotificationManager.showWearableDisconnectedAlert("A wearable has disconnected.");
+            if (typeof notificationManager !== 'undefined') {
+                notificationManager.doNotification();
+            } else {
+                console.warn("notificationManager is not available to call doNotification()");
+            }
         }
         _internalAllDevicesConnected = allFound;
     }
 
     Connections {
-        target: appStorage
+        target: typeof appStorage !== 'undefined' ? appStorage : null
         function onSelectedDevicesChanged() {
             console.log("HomeScreen: appStorage.selectedDevices changed to:", JSON.stringify(appStorage.selectedDevices));
             homeScreenRoot.checkDeviceConnectivity();
@@ -89,33 +87,32 @@ Item {
     }
 
     Component.onCompleted: {
-        homeScreenRoot.checkDeviceConnectivity(); // Initial check
+        homeScreenRoot.checkDeviceConnectivity();
     }
 
-    // --- Central Status Display ---
     ColumnLayout {
         id: statusDisplay
         anchors.centerIn: parent
         spacing: 20
-        visible: homeScreenRoot.hasSelectedDevices // Only show status icons if devices are selected
+        visible: homeScreenRoot.hasSelectedDevices
 
-        Item { // Container for the status icon
+        Item {
             id: statusIconContainer
-            width: 400
-            height: 400
+            width: 300
+            height: 300
             Layout.alignment: Qt.AlignHCenter
 
             Image {
                 id: tickIconSource
                 source: "../icon/tick.svg"
                 anchors.fill: parent
-                visible: false // Hidden, ColorOverlay will render
+                visible: false
                 fillMode: Image.PreserveAspectFit
             }
             ColorOverlay {
                 anchors.fill: tickIconSource
                 source: tickIconSource
-                color: appStorage.selectedBorderColor
+                color: typeof appStorage !== 'undefined' ? appStorage.selectedBorderColor : "green"
                 visible: homeScreenRoot.allDevicesConnected
             }
 
@@ -123,13 +120,13 @@ Item {
                 id: disconnectedIconSource
                 source: "../icon/wearable-connection.svg"
                 anchors.fill: parent
-                visible: false // Hidden, ColorOverlay will render
+                visible: false
                 fillMode: Image.PreserveAspectFit
             }
             ColorOverlay {
                 anchors.fill: disconnectedIconSource
                 source: disconnectedIconSource
-                color: "#EE2400"
+                color: typeof appStorage !== 'undefined' ? (appStorage.warningColor || "red") : "red"
                 visible: !homeScreenRoot.allDevicesConnected
             }
         }
@@ -139,30 +136,27 @@ Item {
             Layout.alignment: Qt.AlignHCenter
             font.pixelSize: 28
             font.bold: true
-            color: appStorage.selectedTextColor
-            visible: homeScreenRoot.hasSelectedDevices // Only show text if devices are selected
+            color: typeof appStorage !== 'undefined' ? appStorage.selectedTextColor : "black"
+            visible: homeScreenRoot.hasSelectedDevices
         }
     }
 
-    // --- Existing Settings Button and Hint ---
     SettingsButton {
-        id: settingsButtonInstance // Renamed to avoid conflict if SettingsButton.qml uses 'settingsButton' as id
+        id: settingsButtonInstance
         anchors {
             top: parent.top
             right: parent.right
             margins: 20
         }
-        onClicked: homeScreenRoot.settings() // Ensure signal is emitted from homeScreenRoot
-        // Assuming SettingsButton is already themed internally or accepts theme properties
+        onClicked: homeScreenRoot.settings()
     }
 
     TapHint {
-        id: settingsTapHint // Renamed
-        // Adjust x and y to be relative to the settingsButtonInstance or parent anchors
+        id: settingsTapHint
         anchors.top: settingsButtonInstance.bottom
-        anchors.topMargin: 5
+        anchors.topMargin: 0
         anchors.right: settingsButtonInstance.right
-        anchors.rightMargin: (settingsButtonInstance.width - width) / 2 // Center below button
+        anchors.rightMargin: (settingsButtonInstance.width - width) / 2
         text: homeScreenRoot.getText("settingsHint")
     }
 }

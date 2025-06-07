@@ -80,8 +80,8 @@ Window {
     // On start
     Component.onCompleted: {
         console.log("Keyboard locale:", VirtualKeyboardSettings.locale)
-        appStorage.approvedDevices = []
-        appStorage.selectedDevices = []
+        // appStorage.approvedDevices = []
+        // appStorage.selectedDevices = []
         storageReady = true
         // Display debug state info
         console.log("Available Devices:", appStorage.availableDevices)
@@ -222,7 +222,7 @@ Window {
 
             StackView {
                 id: stackView
-                initialItem: appStorage.selectedDevices.length === 0 ? onboardingScreen : homeScreen
+                initialItem: appStorage.selectedDevices.length === 0 ? onboardingScreen : (appStorage.settingUpDevice === "" ? homeScreen : questionScreen)
                 anchors.fill: parent
             }
         }

@@ -16,6 +16,7 @@
 #include "src/background/buffer/buffer.h"     // Assuming Buffer class definition
 #include "src/background/buffer/senderworker.h"
 #include "src/background/ble/connectionworker.h"
+#include "src/background/notification/notificationmanager.h"
 
 
 // --- Definition of MainThreadBridge ---
@@ -149,6 +150,9 @@ int main(int argc, char *argv[])
 
     // QML engine
     QQmlApplicationEngine engine;
+
+    NotificationManager notificationManager;
+    engine.rootContext()->setContextProperty("notificationManager", &notificationManager);
 
     // --- Expose MainThreadBridge to QML ---
     engine.rootContext()->setContextProperty("mainThreadBridge", &mainThreadBridge);

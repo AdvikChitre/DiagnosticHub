@@ -279,6 +279,7 @@ Item {
                     } else {
                         root.submit();
                         submitAnswers();
+                        resetSettingUpDevice();
                     }
                 }
             }
@@ -324,5 +325,9 @@ Item {
         } else {
             console.error("NetworkManager 'network' is not defined.");
         }
+    }
+
+    function resetSettingUpDevice() {
+        appStorage.settingUpDevice = ""
     }
 }
