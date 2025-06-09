@@ -9,11 +9,19 @@ Item {
     id: homeScreenRoot
     signal settings()
 
+    MouseArea {
+        anchors.fill: parent
+        onPressed: {
+            // Reset the hint timer whenever there's a click on the background.
+            settingsTapHint.reset();
+        }
+    }
+
     property var translations: {
-        "en_US": { "settingsHint": "Tap to Customise", "allConnected": "All Systems Go!", "wearableDisconnected": "Wearable Disconnected" },
-        "es_ES": { "settingsHint": "Toca para personalizar", "allConnected": "¡Todo en Orden!", "wearableDisconnected": "Dispositivo Desconectado" },
-        "fr_FR": { "settingsHint": "Touchez pour personnaliser", "allConnected": "Tout est Prêt !", "wearableDisconnected": "Appareil Déconnecté" },
-        "de_DE": { "settingsHint": "Tippen, um anzupassen", "allConnected": "Alle Systeme Funktionieren!", "wearableDisconnected": "Gerät Getrennt" }
+        "en_US": { "settingsHint": "Tap to Customise", "allConnected": "Collecting data", "wearableDisconnected": "Wearable Disconnected" },
+        "es_ES": { "settingsHint": "Toca para personalizar", "allConnected": "Recopilando datos", "wearableDisconnected": "Dispositivo Desconectado" },
+        "fr_FR": { "settingsHint": "Touchez pour personnaliser", "allConnected": "Collecte de données", "wearableDisconnected": "Appareil Déconnecté" },
+        "de_DE": { "settingsHint": "Tippen, um anzupassen", "allConnected": "Daten werden erfasst", "wearableDisconnected": "Gerät Getrennt" }
     }
     function getText(key) {
         if (typeof appStorage !== 'undefined' && appStorage.selectedLanguage) {

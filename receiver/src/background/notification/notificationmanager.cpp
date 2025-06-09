@@ -32,9 +32,9 @@ void NotificationManager::runNotificationPattern(bool useBuzzer, bool useLed)
         if (useBuzzer) {
             gpio.setAsOutput(BUZZER_PIN);
         }
-        // if (useLed) {
-        //     gpio.setAsOutput(LED_PIN);
-        // }
+        if (useLed) {
+            gpio.setAsOutput(LED_PIN);
+        }
 
         for (int i = 0; i < 10; ++i) {
             if (useBuzzer) gpio.write(BUZZER_PIN, true);

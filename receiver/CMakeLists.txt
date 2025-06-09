@@ -119,6 +119,9 @@ qt_add_qml_module(appreceiver
     RESOURCES
         src/icon/back.svg
         src/icon/next.svg
+        src/icon/arrow-left.svg
+        src/icon/arrow-right.svg
+        src/icon/cancel.svg
         src/icon/settings.svg
         src/icon/speak.svg
         src/icon/wearable-connection.svg
@@ -131,6 +134,7 @@ qt_add_qml_module(appreceiver
         src/icon/tick.svg
         src/devices/img/Acupebble.png
         src/audio/430811__mmoerth__strange-electronic-toilet-speech-wav.wav
+        src/background/notification/alert.wav
         src/background/ble/assets/busy_dark.png
         src/icon/flag/en_US.svg
         src/icon/flag/es_ES.svg
