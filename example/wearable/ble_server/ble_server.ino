@@ -38,7 +38,7 @@ void setup() {
   Serial.println("Starting BLE Sawtooth Generator!");
 
   // Initialize BLE
-  BLEDevice::init("Example device");
+  BLEDevice::init("Example Device");
   BLEServer *pServer = BLEDevice::createServer();
   pServer->setCallbacks(new ServerCallbacks());
   BLEService *pService = pServer->createService(SERVICE_UUID);
