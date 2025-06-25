@@ -202,6 +202,8 @@ qt_add_qml_module(appreceiver
         src/background/ble/connectionworker.cpp
         src/background/hardware/power.h
         src/background/hardware/power.cpp
+        src/background/diagnostic/fpsmonitor.h src/background/diagnostic/fpsmonitor.cpp
+        src/background/thread/mainthreadbridge.h src/background/thread/mainthreadbridge.cpp
 
 )
 

@@ -89,6 +89,8 @@ Window {
         console.log("")
         console.log("Request URL:", Constants.baseUrl+"/api/wearables/config")
         network.get(Constants.baseUrl + "/api/wearables/config")
+
+
     }
 
     Component {
